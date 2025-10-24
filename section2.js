@@ -1,5 +1,5 @@
 // section2.js
-d3.csv("Spotify_Data_Pre-processed.csv").then(function(data) {
+d3.csv("https://drive.google.com/uc?export=download&id=1DMbWwCl2a1JGfM1Nl2xaJjkoINQHkmtD").then(function(data) {
     console.log("Data loaded:", data.length);
 
     // -------------------------------
