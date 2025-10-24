@@ -1,203 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Music Vibe Analysis Dashboard</title>
+  <meta charset="UTF-8" />
+  <title>Section 2 – How We Got Here</title>
+  <!-- D3 & Plotly -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-2.25.2.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  
   <style>
-    /* Base styles */
+    /* ---------------- Futuristic Dark Theme ---------------- */
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f8fafc;
-      color: #333;
+      font-family: 'Inter', 'Orbitron', Arial, sans-serif;
+      background: linear-gradient(120deg, #0f0c29, #302b63, #24243e);
+      color: #f0f0f0;
     }
-    
-    /* Navbar styles */
-    .navbar {
-      background-color: #4f46e5;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-    
-    .nav-tabs {
-      display: flex;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      overflow-x: auto;
-    }
-    
-    .nav-tab {
-      flex: 0 0 auto;
-    }
-    
-    .nav-link {
-      display: block;
-      padding: 16px 20px;
-      color: rgba(255, 255, 255, 0.8);
-      text-decoration: none;
-      font-weight: 500;
-      border-bottom: 3px solid transparent;
-      transition: all 0.3s ease;
-      white-space: nowrap;
-    }
-    
-    .nav-link:hover {
-      color: white;
-      background-color: rgba(255, 255, 255, 0.1);
-    }
-    
-    .nav-link.active {
-      color: white;
-      border-bottom-color: white;
-      background-color: rgba(255, 255, 255, 0.1);
-    }
-    
-    /* Content area */
-    .content {
-      max-width: 1200px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-    
-    .welcome-card {
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      padding: 40px;
+
+    h1 {
       text-align: center;
+      margin: 30px 0 10px;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+      letter-spacing: 1px;
     }
-    
-    .welcome-card h1 {
-      margin-top: 0;
-      color: #4f46e5;
-    }
-    
-    .welcome-card p {
-      font-size: 18px;
-      line-height: 1.6;
-      color: #666;
-      max-width: 800px;
-      margin: 0 auto 30px;
-    }
-    
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-      margin-top: 40px;
-    }
-    
-    .card {
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+
+    .chart-container {
+      width: 95%;
+      max-width: 1300px;
+      margin: 40px auto;
+      background: rgba(10, 10, 30, 0.85);
       padding: 25px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(0, 255, 255, 0.2);
     }
-    
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+
+    /* Optional: Add hover glow on charts */
+    .chart-container:hover {
+      box-shadow: 0 0 35px rgba(0, 255, 255, 0.6);
+      transform: translateY(-2px);
+      transition: all 0.3s ease-in-out;
     }
-    
-    .card h3 {
-      margin-top: 0;
-      color: #4f46e5;
+
+    /* Plotly axes & titles style overrides */
+    .plotly .main-svg {
+      font-family: 'Orbitron', sans-serif !important;
+      color: #00ffff !important;
     }
-    
-    .card p {
-      color: #666;
-      line-height: 1.5;
-    }
-    
-    /* Responsive styles */
+
+    /* Responsive text */
     @media (max-width: 768px) {
-      .nav-tabs {
-        justify-content: flex-start;
-      }
-      
-      .welcome-card {
-        padding: 25px;
-      }
-      
-      .card-grid {
-        grid-template-columns: 1fr;
-      }
+      .chart-container { padding: 15px; }
+      h1 { font-size: 1.8em; }
     }
   </style>
 </head>
 <body>
-  <!-- Navigation Bar -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <ul class="nav-tabs">
-        <li class="nav-tab"><a href="index.html" class="nav-link active">Dashboard</a></li>
-        <li class="nav-tab"><a href="section2.html" class="nav-link">Vibe Trends Over Time</a></li>
-        <li class="nav-tab"><a href="Section4.html" class="nav-link">Global Vibe Trends</a></li>
-        <li class="nav-tab"><a href="slide1_todays_hits_onepage.html" class="nav-link">Today's Hits</a></li>
-        <li class="nav-tab"><a href="upcoming_artists_quadrant_report.html" class="nav-link">Upcoming Artists</a></li>
-        <li class="nav-tab"><a href="vibe_recommendations_dashboard.html" class="nav-link">Vibe Recommendations</a></li>
-      </ul>
-    </div>
-  </nav>
+  <h1>How We Got Here — Vibe Trends Over Time</h1>
 
-  <!-- Main Content -->
-  <div class="content">
-    <div class="welcome-card">
-      <h1>Music Vibe Analysis Dashboard</h1>
-      <p>Explore global music trends, discover upcoming artists, and get data-driven recommendations for your next playlist. Navigate through the sections using the tabs above to dive deep into different aspects of music vibes across countries and time.</p>
-    </div>
-    
-    <div class="card-grid">
-      <div class="card">
-        <h3>Vibe Trends Over Time</h3>
-        <p>Explore how music vibes have evolved through area charts, line charts, and heatmaps showing popularity trends.</p>
-      </div>
-      <div class="card">
-        <h3>Global Vibe Trends</h3>
-        <p>Compare music vibes across different countries with interactive pie charts showing regional preferences.</p>
-      </div>
-      <div class="card">
-        <h3>Today's Hits</h3>
-        <p>Discover the current top vibe distribution for any country and year with interactive filtering options.</p>
-      </div>
-      <div class="card">
-        <h3>Upcoming Artists</h3>
-        <p>Find rising artists using momentum vs popularity quadrant analysis and top 20 upcoming artists list.</p>
-      </div>
-      <div class="card">
-        <h3>Vibe Recommendations</h3>
-        <p>Get data-driven recommendations based on momentum, popularity trends, and country-specific insights.</p>
-      </div>
-    </div>
-  </div>
+  <div class="chart-container"><div id="area-chart"></div></div>
+  <div class="chart-container"><div id="line-chart"></div></div>
+  <div class="chart-container"><div id="vibe-heatmap"></div></div>
 
-  <script>
-    // Add active class to current page in navbar
-    document.addEventListener('DOMContentLoaded', function() {
-      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-      const navLinks = document.querySelectorAll('.nav-link');
-      
-      navLinks.forEach(link => {
-        const linkHref = link.getAttribute('href');
-        if (currentPage === linkHref) {
-          link.classList.add('active');
-        } else {
-          link.classList.remove('active');
-        }
-      });
-    });
-  </script>
+  <script src="section2.js"></script>
 </body>
 </html>
