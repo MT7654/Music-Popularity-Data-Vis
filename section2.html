@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Section 2 – How We Got Here</title>
+  <!-- D3 & Plotly -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="https://cdn.plot.ly/plotly-2.25.2.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  
+  <style>
+    /* ---------------- Futuristic Dark Theme ---------------- */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', 'Orbitron', Arial, sans-serif;
+      background: linear-gradient(120deg, #0f0c29, #302b63, #24243e);
+      color: #f0f0f0;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 30px 0 10px;
+      font-family: 'Orbitron', sans-serif;
+      font-weight: 700;
+      color: #00ffff;
+      text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+      letter-spacing: 1px;
+    }
+
+    .chart-container {
+      width: 95%;
+      max-width: 1300px;
+      margin: 40px auto;
+      background: rgba(10, 10, 30, 0.85);
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(0, 255, 255, 0.2);
+    }
+
+    /* Optional: Add hover glow on charts */
+    .chart-container:hover {
+      box-shadow: 0 0 35px rgba(0, 255, 255, 0.6);
+      transform: translateY(-2px);
+      transition: all 0.3s ease-in-out;
+    }
+
+    /* Plotly axes & titles style overrides */
+    .plotly .main-svg {
+      font-family: 'Orbitron', sans-serif !important;
+      color: #00ffff !important;
+    }
+
+    /* Responsive text */
+    @media (max-width: 768px) {
+      .chart-container { padding: 15px; }
+      h1 { font-size: 1.8em; }
+    }
+  </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <ul class="nav-tabs">
+          <li class="nav-tab"><a href="index.html" class="nav-link active">Dashboard</a></li>
+          <li class="nav-tab"><a href="section2.html" class="nav-link">Vibe Trends Over Time</a></li>
+          <li class="nav-tab"><a href="Section4.html" class="nav-link">Global Vibe Trends</a></li>
+          <li class="nav-tab"><a href="slide1_todays_hits_onepage.html" class="nav-link">Today's Hits</a></li>
+          <li class="nav-tab"><a href="upcoming_artists_quadrant_report.html" class="nav-link">Upcoming Artists</a></li>
+          <li class="nav-tab"><a href="vibe_recommendations_dashboard.html" class="nav-link">Vibe Recommendations</a></li>
+        </ul>
+      </div>
+    </nav>
+  <h1>How We Got Here — Vibe Trends Over Time</h1>
+
+  <div class="chart-container"><div id="area-chart"></div></div>
+  <div class="chart-container"><div id="line-chart"></div></div>
+  <div class="chart-container"><div id="vibe-heatmap"></div></div>
+
+  <script src="section2.js"></script>
+</body>
+</html>

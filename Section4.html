@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Global Vibe Trends</title>
+
+  <!-- ✅ Optional: Add a modern, minimal style -->
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f8fafc;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+
+    header {
+      text-align: center;
+      background: #4f46e5;
+      color: white;
+      padding: 2rem 1rem;
+    }
+
+    h1 {
+      margin-bottom: 0.5rem;
+      font-size: 2rem;
+    }
+
+    p.subtitle {
+      margin-top: 0;
+      opacity: 0.9;
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 2rem auto;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      padding: 2rem;
+    }
+
+    h2 {
+      margin-top: 2rem;
+      color: #4f46e5;
+    }
+
+    /* Optional fade-in effect */
+    .chart-container {
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    footer {
+      text-align: center;
+      margin: 3rem 0 1rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+     <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <ul class="nav-tabs">
+        <li class="nav-tab"><a href="index.html" class="nav-link active">Dashboard</a></li>
+        <li class="nav-tab"><a href="section2.html" class="nav-link">Vibe Trends Over Time</a></li>
+        <li class="nav-tab"><a href="Section4.html" class="nav-link">Global Vibe Trends</a></li>
+        <li class="nav-tab"><a href="slide1_todays_hits_onepage.html" class="nav-link">Today's Hits</a></li>
+        <li class="nav-tab"><a href="upcoming_artists_quadrant_report.html" class="nav-link">Upcoming Artists</a></li>
+        <li class="nav-tab"><a href="vibe_recommendations_dashboard.html" class="nav-link">Vibe Recommendations</a></li>
+      </ul>
+    </div>
+  </nav>
+  <header>
+    <h1>Global Comparison of Music Vibes</h1>
+    <p class="subtitle">A visualization of Spotify vibe popularity across countries</p>
+  </header>
+
+  <!-- Main content -->
+  <main>
+    <section class="chart-container">
+      <h2>Music Vibes Around the World</h2>
+      <p>Explore the vibe distribution across France, Japan, Brazil, Indonesia, the U.S., and India.</p>
+      
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>                <div id="a110e585-a132-469a-b88c-1e70a9ea4d11" class="plotly-graph-div" style="height:700px; width:1000px;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("a110e585-a132-469a-b88c-1e70a9ea4d11")) {                    Plotly.newPlot(                        "a110e585-a132-469a-b88c-1e70a9ea4d11",                        [{"hovertemplate":"%{label}: %{percent}\u003cextra\u003e\u003c\u002fextra\u003e","insidetextorientation":"radial","labels":["Alternative \u002f Experimental","Mellow Acoustic","Classic \u002f Evergreen","Dance \u002f EDM","Rap \u002f Trap Vibes","Emo \u002f Sad Chill","High-Energy Pop"],"marker":{"colors":["rgb(102, 197, 204)","rgb(246, 207, 113)","rgb(248, 156, 116)","rgb(220, 176, 242)","rgb(135, 197, 95)","rgb(158, 185, 243)","rgb(254, 136, 177)"],"line":{"color":"white","width":2}},"name":"FR","pull":[0.05,0.05,0.05,0.05,0.05,0.05,0.05],"textinfo":"label+percent","textposition":"inside","values":[0.500191,0.443592,0.384005,0.363239,0.329523,0.308573,0.242717],"type":"pie","domain":{"x":[0.0,0.2888888888888889],"y":[0.625,1.0]}},{"hovertemplate":"%{label}: %{percent}\u003cextra\u003e\u003c\u002fextra\u003e","insidetextorientation":"radial","labels":["High-Energy Pop","Mellow Acoustic","Dance \u002f EDM","Classic \u002f Evergreen","Alternative \u002f Experimental","Rap \u002f Trap Vibes","Emo \u002f Sad Chill"],"marker":{"colors":["rgb(254, 136, 177)","rgb(246, 207, 113)","rgb(220, 176, 242)","rgb(248, 156, 116)","rgb(102, 197, 204)","rgb(135, 197, 95)","rgb(158, 185, 243)"],"line":{"color":"white","width":2}},"name":"JP","pull":[0.05,0.05,0.05,0.05,0.05,0.05,0.05],"textinfo":"label+percent","textposition":"inside","values":[0.648668,0.609218,0.58247,0.505813,0.414252,0.081588,0.041974],"type":"pie","domain":{"x":[0.35555555555555557,0.6444444444444445],"y":[0.625,1.0]}},{"hovertemplate":"%{label}: %{percent}\u003cextra\u003e\u003c\u002fextra\u003e","insidetextorientation":"radial","labels":["Dance \u002f EDM","High-Energy Pop","Classic \u002f Evergreen","Emo \u002f Sad Chill","Mellow Acoustic","Rap \u002f Trap Vibes","Alternative \u002f Experimental"],"marker":{"colors":["rgb(220, 176, 242)","rgb(254, 136, 177)","rgb(248, 156, 116)","rgb(158, 185, 243)","rgb(246, 207, 113)","rgb(135, 197, 95)","rgb(102, 197, 204)"],"line":{"color":"white","width":2}},"name":"BR","pull":[0.05,0.05,0.05,0.05,0.05,0.05,0.05],"textinfo":"label+percent","textposition":"inside","values":[0.551059,0.310077,0.195876,0.192792,0.172623,0.167761,0.159452],"type":"pie","domain":{"x":[0.7111111111111111,1.0],"y":[0.625,1.0]}},{"hovertemplate":"%{label}: %{percent}\u003cextra\u003e\u003c\u002fextra\u003e","insidetextorientation":"radial","labels":["Emo \u002f Sad Chill","Classic \u002f Evergreen","Mellow Acoustic","Dance \u002f EDM","High-Energy Pop","Alternative \u002f Experimental"],"marker":{"colors":["rgb(158, 185, 243)","rgb(248, 156, 116)","rgb(246, 207, 113)","rgb(220, 176, 242)","rgb(254, 136, 177)","rgb(102, 197, 204)"],"line":{"color":"white","width":2}},"name":"ID","pull":[0.05,0.05,0.05,0.05,0.05,0.05],"textinfo":"label+percent","textposition":"inside","values":[0.819817,0.780527,0.734874,0.640766,0.581643,0.184737],"type":"pie","domain":{"x":[0.0,0.2888888888888889],"y":[0.0,0.375]}},{"hovertemplate":"%{label}: %{percent}\u003cextra\u003e\u003c\u002fextra\u003e","insidetextorientation":"radial","labels":["Dance \u002f EDM","Classic \u002f Evergreen","Emo \u002f Sad Chill","Alternative \u002f Experimental","Mellow Acoustic","High-Energy Pop","Rap \u002f Trap Vibes"],"marker":{"colors":["rgb(220, 176, 242)","rgb(248, 156, 116)","rgb(158, 185, 243)","rgb(102, 197, 204)","rgb(246, 207, 113)","rgb(254, 136, 177)","rgb(135, 197, 95)"],"line":{"color":"white","width":2}},"name":"US","pull":[0.05,0.05,0.05,0.05,0.05,0.05,0.05],"textinfo":"label+percent","textposition":"inside","values":[0.525192,0.425697,0.387155,0.385147,0.364588,0.302931,0.115863],"type":"pie","domain":{"x":[0.35555555555555557,0.6444444444444445],"y":[0.0,0.375]}},{"hovertemplate":"%{label}: %{percent}\u003cextra\u003e\u003c\u002fextra\u003e","insidetextorientation":"radial","labels":["Dance \u002f EDM","Alternative \u002f Experimental","Mellow Acoustic","Classic \u002f Evergreen","High-Energy Pop","Emo \u002f Sad Chill","Rap \u002f Trap Vibes"],"marker":{"colors":["rgb(220, 176, 242)","rgb(102, 197, 204)","rgb(246, 207, 113)","rgb(248, 156, 116)","rgb(254, 136, 177)","rgb(158, 185, 243)","rgb(135, 197, 95)"],"line":{"color":"white","width":2}},"name":"IN","pull":[0.05,0.05,0.05,0.05,0.05,0.05,0.05],"textinfo":"label+percent","textposition":"inside","values":[0.698626,0.655356,0.57827,0.525799,0.523735,0.481184,0.160807],"type":"pie","domain":{"x":[0.7111111111111111,1.0],"y":[0.0,0.375]}}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}},"annotations":[{"font":{"size":16},"showarrow":false,"text":"FR","x":0.14444444444444446,"xanchor":"center","xref":"paper","y":1.0,"yanchor":"bottom","yref":"paper"},{"font":{"size":16},"showarrow":false,"text":"JP","x":0.5,"xanchor":"center","xref":"paper","y":1.0,"yanchor":"bottom","yref":"paper"},{"font":{"size":16},"showarrow":false,"text":"BR","x":0.8555555555555556,"xanchor":"center","xref":"paper","y":1.0,"yanchor":"bottom","yref":"paper"},{"font":{"size":16},"showarrow":false,"text":"ID","x":0.14444444444444446,"xanchor":"center","xref":"paper","y":0.375,"yanchor":"bottom","yref":"paper"},{"font":{"size":16},"showarrow":false,"text":"US","x":0.5,"xanchor":"center","xref":"paper","y":0.375,"yanchor":"bottom","yref":"paper"},{"font":{"size":16},"showarrow":false,"text":"IN","x":0.8555555555555556,"xanchor":"center","xref":"paper","y":0.375,"yanchor":"bottom","yref":"paper"}],"title":{"text":"Global Comparison of Vibes"},"legend":{"title":{"text":"Vibe Categories"}},"font":{"size":13,"color":"#333"},"height":700,"width":1000,"showlegend":true,"paper_bgcolor":"white","plot_bgcolor":"white"},                        {"responsive": true}                    )                };                            </script>        </div>
+</section>
+
+    <section>
+      <h2>Insights</h2>
+      <ul>
+        <li><b>France:</b> Alternative / Experimental dominates with ~50%, followed by Mellow Acoustic.</li>
+        <li><b>Japan:</b> High-Energy Pop clearly leads, showing a strong preference for upbeat music.</li>
+        <li><b>Brazil:</b> Dance / EDM takes the top spot, aligning with Brazil’s vibrant music culture.</li>
+        <li><b>Indonesia:</b> Emo / Sad Chill surprisingly leads, reflecting emotional and mellow listening patterns.</li>
+        <li><b>United States:</b> Dance / EDM and Classic / Evergreen maintain balanced popularity.</li>
+        <li><b>India:</b> Dance / EDM and Alternative / Experimental are both trending strongly.</li>
+      </ul>
+    </section>
+  </main>
+
+</body>
+</html>

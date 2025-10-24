@@ -1,0 +1,247 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Upcoming Artists — Quadrant & Top 20</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif; margin: 24px; }
+    h1 { margin: 0 0 8px 0; }
+    h2 { margin-top: 32px; }
+    .subtitle { color: #555; margin-bottom: 24px; }
+    .card { border: 1px solid #e6e6e6; border-radius: 12px; padding: 16px; margin-bottom: 24px; }
+    .table { border-collapse: collapse; width: 100%; }
+    .table th, .table td { border: 1px solid #e6e6e6; padding: 8px 10px; text-align: left; }
+    .table-striped tr:nth-child(even) { background: #fafafa; }
+    .hint { color: #666; font-size: 14px; }
+    .meta { font-size: 14px; color: #666; }
+  </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+      <div class="nav-container">
+        <ul class="nav-tabs">
+          <li class="nav-tab"><a href="index.html" class="nav-link active">Dashboard</a></li>
+          <li class="nav-tab"><a href="section2.html" class="nav-link">Vibe Trends Over Time</a></li>
+          <li class="nav-tab"><a href="Section4.html" class="nav-link">Global Vibe Trends</a></li>
+          <li class="nav-tab"><a href="slide1_todays_hits_onepage.html" class="nav-link">Today's Hits</a></li>
+          <li class="nav-tab"><a href="upcoming_artists_quadrant_report.html" class="nav-link">Upcoming Artists</a></li>
+          <li class="nav-tab"><a href="vibe_recommendations_dashboard.html" class="nav-link">Vibe Recommendations</a></li>
+        </ul>
+      </div>
+    </nav>
+  <h1>Upcoming Artists — Data-Driven View</h1>
+  <div class="subtitle">Quadrant: Momentum (x) vs Popularity (y). Y-axis is reversed (lower rank is higher on the chart).</div>
+
+  <div class="card">
+    <h2>Quadrant Scatterplot</h2>
+    <div id="plot"><div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.4.1.min.js"></script>                <div id="373f9f8e-edee-45ba-bbc1-5e57e2598197" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("373f9f8e-edee-45ba-bbc1-5e57e2598197")) {                    Plotly.newPlot(                        "373f9f8e-edee-45ba-bbc1-5e57e2598197",                        [{"customdata":[["ABREU",12,12],["ALIKA",16,16],["APHACA",24,24],["APON",25,25],["Abor & Tynna",24,37],["Aerozen",17,17],["Afusic",31,33],["Alex Warren",31,382],["AliSoomroMusic",31,33],["Alleh",31,48],["Annika",31,60],["Annural Khalid",31,31],["Anson Lo 盧瀚霆",20,20],["Anton Westerlin",13,13],["Ares",22,26],["Ari Bajgora",14,15],["Aron Can",12,12],["Artur",24,24],["BLANCO",14,14],["BLOK3",10,10],["BNP",31,31],["Babasha",14,14],["Bad Bunny",31,132],["Beton.Hofi",31,31],["Beéle",31,678],["Bharath",31,31],["Billie Eilish",31,66],["Birnir",19,36],["Bizi",12,12],["Blessd",15,15],["Bloody Hawk",12,21],["Bruno Mars",26,34],["C. Tangana",20,20],["CIZA",31,31],["Ceren",31,39],["Charita Utami",31,62],["Cup of Joe",31,31],["DESH",31,50],["DFZM",31,31],["Dame",11,11],["Damso",11,19],["Davido",28,28],["Denis Ramniceanu",23,23],["Diego & Victor Hugo",31,31],["Dlala Thukzin",25,25],["Drevo",14,14],["Dzsúdló",12,12],["Earl Agustin",31,31],["Ektor",12,17],["ElGrandeToto",16,17],["Emanuela",15,15],["Era7capone",23,23],["Essam Sasa",31,31],["FOLA",23,23],["Fanny Avonne",30,30],["Fourtwnty",31,62],["French Montana",26,26],["Frenna",19,19],["Fuerza Regida",31,169],["GL_Ceejay",31,31],["Galena",15,15],["Geolier",15,15],["Gilli",13,13],["Golfklubb",10,10],["Grupo Frontera",15,22],["Grupo Menos É Mais",25,25],["Guy2Bezbar",17,17],["Hamza",31,112],["Ida-Lova",28,39],["Ismail Nosrat",11,11],["Itay Levi",19,19],["JENNIE",18,35],["JJ",13,18],["JOSVA",11,12],["Jack Harlow",11,18],["James Arthur",13,13],["Jazzworx",31,62],["Jere Klein",14,14],["Jerry Heil",30,30],["Jessica Shy",15,15],["Jimin",31,322],["Jin",31,397],["Jombriel",31,46],["Jopke van Dobbenburgh",28,28],["Jul",16,16],["Jung Kook",31,90],["Jøtta",31,31],["KAJ",28,89],["Katarsis",12,12],["Kausar Munir",27,27],["KeBlack",17,17],["Kermo Murel",27,27],["Keung To",31,46],["Kingfishr",31,31],["Kizz Daniel",24,24],["Kreamly",19,19],["Kushagra",31,31],["LBI利比",31,41],["Lady Gaga",26,31],["Lamin",31,34],["Latto",31,72],["Lauri Haav",15,15],["Lege-Cy",12,12],["Los Dareyes De La Sierra",11,11],["Luchè",24,29],["Lucky Brown",14,14],["Lustrum U.V.S.V./N.V.V.S.U.",25,25],["MAYDAYs",28,28],["MaWhoo",31,31],["Maanu",31,31],["Maria Becerra",26,41],["Maryla Rodowicz",11,11],["Mata",11,11],["Max Carra",12,17],["Medina",11,11],["Mente Fuerte",11,11],["Merve Özbey",11,11],["Mille",11,11],["Minh Tốc & Lam",28,28],["Ministerul Manelelor",23,23],["Mirella",15,15],["Mora",20,28],["Morgan Wallen",26,65],["Mr. Juve",31,31],["Mrs. GREEN APPLE",31,68],["Murat Boz",12,12],["NAPA",18,18],["NIKI",31,61],["Nadhif Basalamah",11,11],["Nes",14,14],["Neton Vega",31,58],["Nina Chuba",7,14],["Nono La Grinta",11,18],["ObieDaz",14,14],["Olivia Lobato",10,10],["Omah Lay",28,28],["Ovy On The Drums",31,532],["Oğuzhan Koç",11,11],["Parampara Tandon",27,27],["Park Hyo Shin",31,76],["Pashanim",31,39],["Paulo Londra",26,41],["Peso Pluma",31,56],["Peter Pann",26,26],["Pil",11,11],["Plutonio",31,31],["Poizi",11,11],["RAF Camora",9,17],["RAMKY EN LOS CONTROLES",11,16],["RICK",24,24],["Raim Laode",31,31],["Rochy RD",10,10],["Roeland Beelen",30,30],["Roze Oficial",12,17],["SHDØW",10,10],["SMART",11,11],["SNIK",18,18],["SNOW",23,23],["SYKES",25,25],["Saaheal",31,31],["Sachet-Parampara",27,27],["Sara Rikas",26,59],["Semicenk",26,26],["Sentino",31,31],["Separ",31,42],["Seyi Vibez",20,22],["Sfera Ebbasta",25,25],["Shallipopi",23,23],["Shaw",31,42],["Shiva",25,25],["Shubh",30,57],["Simone Mendes",28,28],["Slavíček",15,15],["Sobel",31,41],["TOQUEL",26,26],["Tagne",31,31],["Tate McRae",26,49],["Tedi Aleksandrova",15,15],["Thukuthela",31,62],["Tito Double P",17,31],["Tjuvjakt",30,30],["Tommy Cash",20,59],["Tzanca Uraganu",31,31],["V",31,76],["Valen",12,17],["VÆB",17,17],["W Sound",31,470],["Wegz",18,18],["WizTheMc",13,13],["XROSS",26,41],["YARMAK",30,30],["YOUNGOHM",30,30],["Yorghaki",31,48],["Young Cister",19,19],["Yzomandias",31,46],["Yıldız Tilbe",17,17],["ZAKLOOW",31,31],["Zee Nxumalo",25,25],["bees & honey",13,13],["francis",31,41],["madk1d",29,35],["reezy",7,15],["sombr",31,139],["säm",16,16],["triibupasta",9,11],["נדב חנציס",20,20],["רון חיון",30,30],["مصطفي الجن و هادي الصغير - تيم الابداع",30,31]],"hovertemplate":"<b>%{customdata[0]}</b><br>Momentum: %{x:.2f}<br>Popularity (rank): %{y:.2f}<br>Days Active: %{customdata[1]}<br>Points: %{customdata[2]}<extra></extra>","mode":"markers","name":"Artists","text":["ABREU","ALIKA","APHACA","APON","Abor & Tynna","Aerozen","Afusic","Alex Warren","AliSoomroMusic","Alleh","Annika","Annural Khalid","Anson Lo 盧瀚霆","Anton Westerlin","Ares","Ari Bajgora","Aron Can","Artur","BLANCO","BLOK3","BNP","Babasha","Bad Bunny","Beton.Hofi","Beéle","Bharath","Billie Eilish","Birnir","Bizi","Blessd","Bloody Hawk","Bruno Mars","C. Tangana","CIZA","Ceren","Charita Utami","Cup of Joe","DESH","DFZM","Dame","Damso","Davido","Denis Ramniceanu","Diego & Victor Hugo","Dlala Thukzin","Drevo","Dzsúdló","Earl Agustin","Ektor","ElGrandeToto","Emanuela","Era7capone","Essam Sasa","FOLA","Fanny Avonne","Fourtwnty","French Montana","Frenna","Fuerza Regida","GL_Ceejay","Galena","Geolier","Gilli","Golfklubb","Grupo Frontera","Grupo Menos É Mais","Guy2Bezbar","Hamza","Ida-Lova","Ismail Nosrat","Itay Levi","JENNIE","JJ","JOSVA","Jack Harlow","James Arthur","Jazzworx","Jere Klein","Jerry Heil","Jessica Shy","Jimin","Jin","Jombriel","Jopke van Dobbenburgh","Jul","Jung Kook","Jøtta","KAJ","Katarsis","Kausar Munir","KeBlack","Kermo Murel","Keung To","Kingfishr","Kizz Daniel","Kreamly","Kushagra","LBI利比","Lady Gaga","Lamin","Latto","Lauri Haav","Lege-Cy","Los Dareyes De La Sierra","Luchè","Lucky Brown","Lustrum U.V.S.V./N.V.V.S.U.","MAYDAYs","MaWhoo","Maanu","Maria Becerra","Maryla Rodowicz","Mata","Max Carra","Medina","Mente Fuerte","Merve Özbey","Mille","Minh Tốc & Lam","Ministerul Manelelor","Mirella","Mora","Morgan Wallen","Mr. Juve","Mrs. GREEN APPLE","Murat Boz","NAPA","NIKI","Nadhif Basalamah","Nes","Neton Vega","Nina Chuba","Nono La Grinta","ObieDaz","Olivia Lobato","Omah Lay","Ovy On The Drums","Oğuzhan Koç","Parampara Tandon","Park Hyo Shin","Pashanim","Paulo Londra","Peso Pluma","Peter Pann","Pil","Plutonio","Poizi","RAF Camora","RAMKY EN LOS CONTROLES","RICK","Raim Laode","Rochy RD","Roeland Beelen","Roze Oficial","SHDØW","SMART","SNIK","SNOW","SYKES","Saaheal","Sachet-Parampara","Sara Rikas","Semicenk","Sentino","Separ","Seyi Vibez","Sfera Ebbasta","Shallipopi","Shaw","Shiva","Shubh","Simone Mendes","Slavíček","Sobel","TOQUEL","Tagne","Tate McRae","Tedi Aleksandrova","Thukuthela","Tito Double P","Tjuvjakt","Tommy Cash","Tzanca Uraganu","V","Valen","VÆB","W Sound","Wegz","WizTheMc","XROSS","YARMAK","YOUNGOHM","Yorghaki","Young Cister","Yzomandias","Yıldız Tilbe","ZAKLOOW","Zee Nxumalo","bees & honey","francis","madk1d","reezy","sombr","säm","triibupasta","נדב חנציס","רון חיון","مصطفي الجن و هادي الصغير - تيم الابداع"],"type":"scattergl","x":[4.083333333333333,3.1875,0.0416666666666666,0.24,0.8378378378378378,0.2941176470588235,0.0606060606060606,0.1020942408376963,0.0606060606060606,0.125,0.8333333333333334,0.0,2.45,7.538461538461538,2.0384615384615383,3.466666666666667,4.416666666666667,0.1666666666666666,-0.1428571428571428,4.8,1.5806451612903225,-0.0714285714285714,0.1742424242424242,0.0,0.3997050147492625,0.032258064516129,0.1818181818181818,5.861111111111111,4.083333333333333,0.0,1.380952380952381,0.1176470588235294,2.35,0.0,0.0256410256410256,0.064516129032258,0.0,1.08,-0.064516129032258,0.2727272727272727,7.736842105263157,-0.0357142857142857,0.1304347826086956,0.0,0.16,0.2142857142857142,0.0833333333333333,0.0,4.529411764705882,2.764705882352941,0.1333333333333333,0.3043478260869565,-0.032258064516129,0.1304347826086956,0.2,0.064516129032258,0.0,2.5789473684210527,0.1834319526627219,0.0,0.3333333333333333,3.1333333333333333,7.615384615384615,0.5,0.3636363636363636,0.08,0.2352941176470588,0.1696428571428571,3.8461538461538463,1.5454545454545454,0.4736842105263157,0.2857142857142857,4.333333333333333,4.0,0.2777777777777778,21.846153846153847,0.0,0.2857142857142857,0.0666666666666666,0.2666666666666666,0.6801242236024845,1.216624685138539,-0.0434782608695652,1.6785714285714286,0.0625,0.4,-0.064516129032258,0.5280898876404494,0.75,0.1481481481481481,0.2352941176470588,2.0,-0.0434782608695652,0.0,0.125,2.526315789473684,0.032258064516129,-0.024390243902439,0.0967741935483871,1.411764705882353,0.4305555555555556,3.4,1.5,0.4545454545454545,1.7586206896551724,0.2857142857142857,-0.04,0.1071428571428571,0.0,0.0,0.073170731707317,0.6363636363636364,0.6363636363636364,0.7058823529411765,4.454545454545454,2.363636363636364,0.4545454545454545,4.454545454545454,0.1071428571428571,0.1304347826086956,3.4,12.035714285714286,2.9846153846153847,-0.064516129032258,0.0441176470588235,0.0,0.0555555555555555,0.0163934426229508,0.0909090909090909,0.2857142857142857,0.1034482758620689,6.928571428571429,1.1111111111111112,2.142857142857143,0.5,-0.0357142857142857,0.2518796992481203,0.4545454545454545,0.1481481481481481,0.3815789473684211,0.0256410256410256,0.073170731707317,0.0714285714285714,0.0,4.454545454545454,0.032258064516129,0.6363636363636364,11.823529411764708,0.1875,0.1666666666666666,0.0,0.8,1.5666666666666669,0.7058823529411765,0.2,0.2727272727272727,1.3888888888888888,0.3043478260869565,0.16,0.032258064516129,0.1481481481481481,0.0169491525423728,0.0,1.5806451612903225,1.261904761904762,4.363636363636363,0.04,2.1739130434782608,0.0476190476190476,0.04,0.087719298245614,0.1785714285714285,0.0666666666666666,0.048780487804878,1.7692307692307692,-0.032258064516129,1.9795918367346936,0.1333333333333333,0.0,0.2580645161290322,0.2,22.610169491525426,-0.064516129032258,0.3815789473684211,0.7058823529411765,3.0,0.0468085106382978,-0.1111111111111111,0.3846153846153846,0.073170731707317,0.0666666666666666,0.0,0.125,2.526315789473684,1.0434782608695652,0.3529411764705882,-0.032258064516129,0.16,0.3846153846153846,0.048780487804878,0.1142857142857142,9.866666666666667,0.2014388489208633,3.1875,4.454545454545454,0.15,0.0,0.0967741935483871],"y":[1.0,1.5,2.0,2.0,2.0,2.0,1.0,1.0,1.0,3.0,1.0,2.0,2.0,3.0,3.0,1.0,2.0,3.0,2.5,3.0,1.0,2.0,2.0,2.0,2.0,1.0,2.0,2.0,1.0,2.0,1.0,3.0,1.0,1.0,1.0,1.0,1.0,2.0,2.0,3.0,3.0,2.0,2.0,2.0,3.0,1.0,3.0,2.0,1.0,3.0,1.0,1.0,2.0,2.0,1.0,1.0,1.0,1.0,2.0,2.0,2.0,1.0,3.0,1.0,2.0,1.0,2.0,2.0,2.0,2.0,3.0,3.0,1.0,2.0,2.0,3.0,2.0,2.0,1.0,2.0,2.0,1.0,3.0,2.0,3.0,2.0,2.0,2.0,2.5,3.0,2.0,2.0,2.0,2.0,2.0,1.0,1.0,2.0,3.0,1.0,1.0,2.0,2.0,3.0,2.0,2.0,2.0,3.0,2.0,2.0,2.0,3.0,3.0,2.0,3.0,1.0,2.0,3.0,3.0,2.0,2.0,1.0,2.0,1.0,2.0,2.5,1.0,3.0,3.0,2.0,2.0,2.0,2.0,2.0,1.0,2.0,1.0,2.0,3.0,1.0,1.0,2.0,2.0,1.0,3.0,2.0,1.0,2.0,2.0,3.0,2.0,3.0,2.0,2.0,2.0,3.0,1.0,1.0,3.0,1.0,3.0,2.0,2.0,1.0,1.5,1.0,2.0,1.0,1.0,2.0,3.0,1.0,1.0,2.0,1.0,1.0,1.0,1.0,2.0,3.0,1.0,3.0,1.0,1.0,2.0,3.0,1.0,1.0,3.0,2.0,1.0,3.0,3.0,1.0,2.0,2.0,1.0,3.0,3.0,2.0,2.0,2.0,2.0,1.5,3.0,1.0,2.0,2.0]},{"line":{"dash":"dash"},"mode":"lines","name":"Momentum median","type":"scattergl","x":[0.2078622816032888,0.2078622816032888],"y":[1.0,3.0]},{"line":{"dash":"dash"},"mode":"lines","name":"Popularity median","type":"scattergl","x":[-0.1428571428571428,22.610169491525426],"y":[2.0,2.0]}],                        {"annotations":[{"showarrow":false,"text":"High Popularity • Low Momentum","x":0.25,"xref":"paper","y":0.9,"yref":"paper"},{"showarrow":false,"text":"High Popularity • High Momentum","x":0.75,"xref":"paper","y":0.9,"yref":"paper"},{"showarrow":false,"text":"Low Popularity • Low Momentum","x":0.25,"xref":"paper","y":0.1,"yref":"paper"},{"showarrow":false,"text":"Low Popularity • High Momentum","x":0.75,"xref":"paper","y":0.1,"yref":"paper"}],"hovermode":"closest","margin":{"b":60,"l":60,"r":30,"t":60},"template":{"data":{"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"heatmapgl":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmapgl"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"#E5ECF6","showlakes":true,"showland":true,"subunitcolor":"white"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"bgcolor":"#E5ECF6","radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","gridwidth":2,"linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white"},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","gridwidth":2,"linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white"},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","gridwidth":2,"linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"bgcolor":"#E5ECF6","caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","zerolinewidth":2}}},"title":{"text":"Upcoming Artists — Momentum vs. Popularity (Recent 30–60 Days)"},"xaxis":{"title":{"text":"Momentum (avg daily movement; + = rising)"},"zeroline":false},"yaxis":{"autorange":"reversed","title":{"text":"Popularity (median daily rank; lower is better)"}}},                        {"responsive": true}                    )                };                            </script>        </div></div>
+    <div class="hint">Tip: Hover any point to see artist details. Dashed lines show median Momentum and median Popularity.</div>
+  </div>
+
+  <div class="card">
+    <h2>Top 20 Upcoming Artists</h2>
+    <table border="1" class="dataframe table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Artist</th>
+      <th>Momentum (↑ better)</th>
+      <th>Popularity Rank (↓ better)</th>
+      <th>Days Active</th>
+      <th>Obs Points</th>
+      <th>Quadrant</th>
+      <th>Upcoming Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Tommy Cash</td>
+      <td>22.61</td>
+      <td>3.00</td>
+      <td>20</td>
+      <td>59</td>
+      <td>Low Popularity • High Momentum</td>
+      <td>0.65</td>
+    </tr>
+    <tr>
+      <td>James Arthur</td>
+      <td>21.85</td>
+      <td>3.00</td>
+      <td>13</td>
+      <td>13</td>
+      <td>Low Popularity • High Momentum</td>
+      <td>0.63</td>
+    </tr>
+    <tr>
+      <td>Damso</td>
+      <td>7.74</td>
+      <td>3.00</td>
+      <td>11</td>
+      <td>19</td>
+      <td>Low Popularity • High Momentum</td>
+      <td>0.23</td>
+    </tr>
+    <tr>
+      <td>Gilli</td>
+      <td>7.62</td>
+      <td>3.00</td>
+      <td>13</td>
+      <td>13</td>
+      <td>Low Popularity • High Momentum</td>
+      <td>0.22</td>
+    </tr>
+    <tr>
+      <td>Anton Westerlin</td>
+      <td>7.54</td>
+      <td>3.00</td>
+      <td>13</td>
+      <td>13</td>
+      <td>Low Popularity • High Momentum</td>
+      <td>0.22</td>
+    </tr>
+    <tr>
+      <td>BLOK3</td>
+      <td>4.80</td>
+      <td>3.00</td>
+      <td>10</td>
+      <td>10</td>
+      <td>Low Popularity • High Momentum</td>
+      <td>0.14</td>
+    </tr>
+    <tr>
+      <td>Medina</td>
+      <td>4.45</td>
+      <td>3.00</td>
+      <td>11</td>
+      <td>11</td>
+      <td>Low Popularity • High Momentum</td>
+      <td>0.13</td>
+    </tr>
+    <tr>
+      <td>Mille</td>
+      <td>4.45</td>
+      <td>3.00</td>
+      <td>11</td>
+      <td>11</td>
+      <td>Low Popularity • High Momentum</td>
+      <td>0.13</td>
+    </tr>
+    <tr>
+      <td>Pil</td>
+      <td>4.45</td>
+      <td>3.00</td>
+      <td>11</td>
+      <td>11</td>
+      <td>Low Popularity • High Momentum</td>
+      <td>0.13</td>
+    </tr>
+    <tr>
+      <td>triibupasta</td>
+      <td>4.45</td>
+      <td>3.00</td>
+      <td>9</td>
+      <td>11</td>
+      <td>Low Popularity • High Momentum</td>
+      <td>0.13</td>
+    </tr>
+    <tr>
+      <td>Katarsis</td>
+      <td>0.75</td>
+      <td>2.50</td>
+      <td>12</td>
+      <td>12</td>
+      <td>Low Popularity • High Momentum</td>
+      <td>0.11</td>
+    </tr>
+    <tr>
+      <td>VÆB</td>
+      <td>3.00</td>
+      <td>3.00</td>
+      <td>17</td>
+      <td>17</td>
+      <td>Low Popularity • High Momentum</td>
+      <td>0.09</td>
+    </tr>
+    <tr>
+      <td>ElGrandeToto</td>
+      <td>2.76</td>
+      <td>3.00</td>
+      <td>16</td>
+      <td>17</td>
+      <td>Low Popularity • High Momentum</td>
+      <td>0.08</td>
+    </tr>
+    <tr>
+      <td>Ares</td>
+      <td>2.04</td>
+      <td>3.00</td>
+      <td>22</td>
+      <td>26</td>
+      <td>Low Popularity • High Momentum</td>
+      <td>0.06</td>
+    </tr>
+    <tr>
+      <td>Rochy RD</td>
+      <td>0.80</td>
+      <td>3.00</td>
+      <td>10</td>
+      <td>10</td>
+      <td>Low Popularity • High Momentum</td>
+      <td>0.03</td>
+    </tr>
+    <tr>
+      <td>Maryla Rodowicz</td>
+      <td>0.64</td>
+      <td>3.00</td>
+      <td>11</td>
+      <td>11</td>
+      <td>Low Popularity • High Momentum</td>
+      <td>0.02</td>
+    </tr>
+    <tr>
+      <td>Mata</td>
+      <td>0.64</td>
+      <td>3.00</td>
+      <td>11</td>
+      <td>11</td>
+      <td>Low Popularity • High Momentum</td>
+      <td>0.02</td>
+    </tr>
+    <tr>
+      <td>Itay Levi</td>
+      <td>0.47</td>
+      <td>3.00</td>
+      <td>19</td>
+      <td>19</td>
+      <td>Low Popularity • High Momentum</td>
+      <td>0.02</td>
+    </tr>
+    <tr>
+      <td>Los Dareyes De La Sierra</td>
+      <td>0.45</td>
+      <td>3.00</td>
+      <td>11</td>
+      <td>11</td>
+      <td>Low Popularity • High Momentum</td>
+      <td>0.02</td>
+    </tr>
+    <tr>
+      <td>WizTheMc</td>
+      <td>0.38</td>
+      <td>3.00</td>
+      <td>13</td>
+      <td>13</td>
+      <td>Low Popularity • High Momentum</td>
+      <td>0.02</td>
+    </tr>
+  </tbody>
+</table>
+    <div class="hint">“Upcoming” is ranked by a composite of high momentum and not-yet-high popularity.</div>
+  </div>
+
+  <div class="meta">Source: spotify_dataset.csv (last 5 years, Top 200 per day; recent window 30–60 days).</div>
+</body>
+</html>
