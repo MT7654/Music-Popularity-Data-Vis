@@ -1,5 +1,5 @@
 // section2.js
-d3.csv("Spotify_Data_Aggregated_5Y.csv").then(function(data) {
+d3.csv("Spotify_Data_Aggregated_5Y(1).csv").then(function(data) {
     console.log("Data loaded:", data.length);
 
     // -------------------------------
