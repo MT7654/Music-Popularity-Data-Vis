@@ -1,0 +1,369 @@
+country,period,year,vibe,top5_count
+ID,2023-10,2023,Mellow Acoustic,4
+ID,2023-10,2023,Alternative / Experimental,1
+ID,2023-11,2023,Mellow Acoustic,3
+ID,2023-11,2023,Alternative / Experimental,2
+ID,2023-12,2023,Mellow Acoustic,3
+ID,2023-12,2023,Dance / EDM,1
+ID,2023-12,2023,Emo / Sad Chill,1
+ID,2024-01,2024,Classic / Evergreen,1
+ID,2024-01,2024,Dance / EDM,1
+ID,2024-01,2024,Emo / Sad Chill,1
+ID,2024-01,2024,Mellow Acoustic,1
+ID,2024-01,2024,Rap / Trap Vibes,1
+ID,2024-02,2024,Mellow Acoustic,3
+ID,2024-02,2024,Emo / Sad Chill,1
+ID,2024-02,2024,Rap / Trap Vibes,1
+ID,2024-03,2024,Mellow Acoustic,3
+ID,2024-03,2024,Emo / Sad Chill,1
+ID,2024-03,2024,Rap / Trap Vibes,1
+ID,2024-04,2024,Mellow Acoustic,3
+ID,2024-04,2024,Emo / Sad Chill,1
+ID,2024-04,2024,Rap / Trap Vibes,1
+ID,2024-05,2024,Mellow Acoustic,2
+ID,2024-05,2024,Emo / Sad Chill,1
+ID,2024-05,2024,High-Energy Pop,1
+ID,2024-05,2024,Rap / Trap Vibes,1
+ID,2024-06,2024,Emo / Sad Chill,2
+ID,2024-06,2024,Rap / Trap Vibes,2
+ID,2024-06,2024,Mellow Acoustic,1
+ID,2024-07,2024,Emo / Sad Chill,2
+ID,2024-07,2024,Alternative / Experimental,1
+ID,2024-07,2024,Mellow Acoustic,1
+ID,2024-07,2024,Rap / Trap Vibes,1
+ID,2024-08,2024,Mellow Acoustic,2
+ID,2024-08,2024,Classic / Evergreen,1
+ID,2024-08,2024,Emo / Sad Chill,1
+ID,2024-08,2024,Rap / Trap Vibes,1
+ID,2024-09,2024,Mellow Acoustic,3
+ID,2024-09,2024,Alternative / Experimental,1
+ID,2024-09,2024,Classic / Evergreen,1
+ID,2024-10,2024,Mellow Acoustic,2
+ID,2024-10,2024,Alternative / Experimental,1
+ID,2024-10,2024,Classic / Evergreen,1
+ID,2024-10,2024,High-Energy Pop,1
+ID,2024-11,2024,Mellow Acoustic,2
+ID,2024-11,2024,Alternative / Experimental,1
+ID,2024-11,2024,Dance / EDM,1
+ID,2024-11,2024,High-Energy Pop,1
+ID,2024-12,2024,Mellow Acoustic,3
+ID,2024-12,2024,Classic / Evergreen,1
+ID,2024-12,2024,Dance / EDM,1
+ID,2025-01,2025,Dance / EDM,2
+ID,2025-01,2025,Classic / Evergreen,1
+ID,2025-01,2025,Emo / Sad Chill,1
+ID,2025-01,2025,Mellow Acoustic,1
+ID,2025-02,2025,Dance / EDM,2
+ID,2025-02,2025,Classic / Evergreen,1
+ID,2025-02,2025,Emo / Sad Chill,1
+ID,2025-02,2025,Mellow Acoustic,1
+ID,2025-03,2025,Dance / EDM,2
+ID,2025-03,2025,Emo / Sad Chill,2
+ID,2025-03,2025,Classic / Evergreen,1
+ID,2025-04,2025,Classic / Evergreen,1
+ID,2025-04,2025,Dance / EDM,1
+ID,2025-04,2025,High-Energy Pop,1
+ID,2025-04,2025,Mellow Acoustic,1
+ID,2025-04,2025,Rap / Trap Vibes,1
+ID,2025-05,2025,Classic / Evergreen,1
+ID,2025-05,2025,Dance / EDM,1
+ID,2025-05,2025,Emo / Sad Chill,1
+ID,2025-05,2025,Mellow Acoustic,1
+ID,2025-05,2025,Rap / Trap Vibes,1
+ID,2025-06,2025,Dance / EDM,2
+ID,2025-06,2025,Classic / Evergreen,1
+ID,2025-06,2025,Mellow Acoustic,1
+ID,2025-06,2025,Rap / Trap Vibes,1
+MY,2023-10,2023,Mellow Acoustic,3
+MY,2023-10,2023,High-Energy Pop,2
+MY,2023-11,2023,High-Energy Pop,2
+MY,2023-11,2023,Mellow Acoustic,2
+MY,2023-11,2023,Rap / Trap Vibes,1
+MY,2023-12,2023,High-Energy Pop,2
+MY,2023-12,2023,Mellow Acoustic,2
+MY,2023-12,2023,Classic / Evergreen,1
+MY,2024-01,2024,High-Energy Pop,2
+MY,2024-01,2024,Mellow Acoustic,2
+MY,2024-01,2024,Classic / Evergreen,1
+MY,2024-02,2024,Classic / Evergreen,2
+MY,2024-02,2024,Mellow Acoustic,2
+MY,2024-02,2024,Emo / Sad Chill,1
+MY,2024-03,2024,Emo / Sad Chill,3
+MY,2024-03,2024,Mellow Acoustic,2
+MY,2024-04,2024,Rap / Trap Vibes,2
+MY,2024-04,2024,Dance / EDM,1
+MY,2024-04,2024,Emo / Sad Chill,1
+MY,2024-04,2024,Mellow Acoustic,1
+MY,2024-05,2024,Mellow Acoustic,2
+MY,2024-05,2024,Dance / EDM,1
+MY,2024-05,2024,Emo / Sad Chill,1
+MY,2024-05,2024,High-Energy Pop,1
+MY,2024-06,2024,Alternative / Experimental,2
+MY,2024-06,2024,Emo / Sad Chill,1
+MY,2024-06,2024,High-Energy Pop,1
+MY,2024-06,2024,Mellow Acoustic,1
+MY,2024-07,2024,Alternative / Experimental,2
+MY,2024-07,2024,Emo / Sad Chill,1
+MY,2024-07,2024,High-Energy Pop,1
+MY,2024-07,2024,Mellow Acoustic,1
+MY,2024-08,2024,Alternative / Experimental,2
+MY,2024-08,2024,High-Energy Pop,1
+MY,2024-08,2024,Mellow Acoustic,1
+MY,2024-08,2024,Rap / Trap Vibes,1
+MY,2024-09,2024,Alternative / Experimental,3
+MY,2024-09,2024,Classic / Evergreen,1
+MY,2024-09,2024,High-Energy Pop,1
+MY,2024-10,2024,Alternative / Experimental,2
+MY,2024-10,2024,Classic / Evergreen,1
+MY,2024-10,2024,High-Energy Pop,1
+MY,2024-10,2024,Mellow Acoustic,1
+MY,2024-11,2024,Alternative / Experimental,2
+MY,2024-11,2024,Emo / Sad Chill,1
+MY,2024-11,2024,High-Energy Pop,1
+MY,2024-11,2024,Mellow Acoustic,1
+MY,2024-12,2024,High-Energy Pop,2
+MY,2024-12,2024,Alternative / Experimental,1
+MY,2024-12,2024,Emo / Sad Chill,1
+MY,2024-12,2024,Rap / Trap Vibes,1
+MY,2025-01,2025,Alternative / Experimental,1
+MY,2025-01,2025,Dance / EDM,1
+MY,2025-01,2025,Emo / Sad Chill,1
+MY,2025-01,2025,High-Energy Pop,1
+MY,2025-01,2025,Mellow Acoustic,1
+MY,2025-02,2025,Alternative / Experimental,2
+MY,2025-02,2025,Dance / EDM,1
+MY,2025-02,2025,Mellow Acoustic,1
+MY,2025-02,2025,Rap / Trap Vibes,1
+MY,2025-03,2025,Alternative / Experimental,1
+MY,2025-03,2025,Classic / Evergreen,1
+MY,2025-03,2025,Dance / EDM,1
+MY,2025-03,2025,High-Energy Pop,1
+MY,2025-03,2025,Mellow Acoustic,1
+MY,2025-04,2025,Classic / Evergreen,1
+MY,2025-04,2025,Dance / EDM,1
+MY,2025-04,2025,Emo / Sad Chill,1
+MY,2025-04,2025,High-Energy Pop,1
+MY,2025-04,2025,Mellow Acoustic,1
+MY,2025-05,2025,Mellow Acoustic,3
+MY,2025-05,2025,Dance / EDM,1
+MY,2025-05,2025,High-Energy Pop,1
+MY,2025-06,2025,Mellow Acoustic,2
+MY,2025-06,2025,Classic / Evergreen,1
+MY,2025-06,2025,Dance / EDM,1
+MY,2025-06,2025,Emo / Sad Chill,1
+PH,2023-10,2023,Mellow Acoustic,2
+PH,2023-10,2023,Emo / Sad Chill,1
+PH,2023-10,2023,High-Energy Pop,1
+PH,2023-10,2023,Rap / Trap Vibes,1
+PH,2023-11,2023,Emo / Sad Chill,2
+PH,2023-11,2023,Rap / Trap Vibes,2
+PH,2023-11,2023,High-Energy Pop,1
+PH,2023-12,2023,Emo / Sad Chill,2
+PH,2023-12,2023,Rap / Trap Vibes,2
+PH,2023-12,2023,Classic / Evergreen,1
+PH,2024-01,2024,Rap / Trap Vibes,2
+PH,2024-01,2024,Classic / Evergreen,1
+PH,2024-01,2024,Emo / Sad Chill,1
+PH,2024-01,2024,High-Energy Pop,1
+PH,2024-02,2024,Emo / Sad Chill,2
+PH,2024-02,2024,High-Energy Pop,2
+PH,2024-02,2024,Rap / Trap Vibes,1
+PH,2024-03,2024,High-Energy Pop,2
+PH,2024-03,2024,Emo / Sad Chill,1
+PH,2024-03,2024,Mellow Acoustic,1
+PH,2024-03,2024,Rap / Trap Vibes,1
+PH,2024-04,2024,High-Energy Pop,3
+PH,2024-04,2024,Emo / Sad Chill,1
+PH,2024-04,2024,Mellow Acoustic,1
+PH,2024-05,2024,High-Energy Pop,2
+PH,2024-05,2024,Alternative / Experimental,1
+PH,2024-05,2024,Dance / EDM,1
+PH,2024-05,2024,Mellow Acoustic,1
+PH,2024-06,2024,Alternative / Experimental,2
+PH,2024-06,2024,Dance / EDM,1
+PH,2024-06,2024,High-Energy Pop,1
+PH,2024-06,2024,Mellow Acoustic,1
+PH,2024-07,2024,Alternative / Experimental,3
+PH,2024-07,2024,Dance / EDM,1
+PH,2024-07,2024,High-Energy Pop,1
+PH,2024-08,2024,Alternative / Experimental,4
+PH,2024-08,2024,Dance / EDM,1
+PH,2024-09,2024,Alternative / Experimental,5
+PH,2024-10,2024,Alternative / Experimental,3
+PH,2024-10,2024,Dance / EDM,1
+PH,2024-10,2024,High-Energy Pop,1
+PH,2024-11,2024,Alternative / Experimental,3
+PH,2024-11,2024,High-Energy Pop,1
+PH,2024-11,2024,Rap / Trap Vibes,1
+PH,2024-12,2024,Alternative / Experimental,2
+PH,2024-12,2024,Rap / Trap Vibes,2
+PH,2024-12,2024,High-Energy Pop,1
+PH,2025-01,2025,Alternative / Experimental,3
+PH,2025-01,2025,Emo / Sad Chill,1
+PH,2025-01,2025,Rap / Trap Vibes,1
+PH,2025-02,2025,Alternative / Experimental,2
+PH,2025-02,2025,Emo / Sad Chill,1
+PH,2025-02,2025,Mellow Acoustic,1
+PH,2025-02,2025,Rap / Trap Vibes,1
+PH,2025-03,2025,Alternative / Experimental,2
+PH,2025-03,2025,Rap / Trap Vibes,2
+PH,2025-03,2025,Emo / Sad Chill,1
+PH,2025-04,2025,Rap / Trap Vibes,2
+PH,2025-04,2025,Alternative / Experimental,1
+PH,2025-04,2025,Classic / Evergreen,1
+PH,2025-04,2025,Emo / Sad Chill,1
+PH,2025-05,2025,Rap / Trap Vibes,2
+PH,2025-05,2025,Alternative / Experimental,1
+PH,2025-05,2025,Classic / Evergreen,1
+PH,2025-05,2025,Emo / Sad Chill,1
+PH,2025-06,2025,Classic / Evergreen,2
+PH,2025-06,2025,Rap / Trap Vibes,2
+PH,2025-06,2025,Alternative / Experimental,1
+SG,2023-10,2023,Classic / Evergreen,2
+SG,2023-10,2023,High-Energy Pop,2
+SG,2023-10,2023,Emo / Sad Chill,1
+SG,2023-11,2023,High-Energy Pop,5
+SG,2023-12,2023,High-Energy Pop,2
+SG,2023-12,2023,Classic / Evergreen,1
+SG,2023-12,2023,Emo / Sad Chill,1
+SG,2023-12,2023,Rap / Trap Vibes,1
+SG,2024-01,2024,High-Energy Pop,3
+SG,2024-01,2024,Alternative / Experimental,1
+SG,2024-01,2024,Rap / Trap Vibes,1
+SG,2024-02,2024,Rap / Trap Vibes,3
+SG,2024-02,2024,High-Energy Pop,2
+SG,2024-03,2024,Rap / Trap Vibes,2
+SG,2024-03,2024,Alternative / Experimental,1
+SG,2024-03,2024,Dance / EDM,1
+SG,2024-03,2024,Mellow Acoustic,1
+SG,2024-04,2024,Emo / Sad Chill,2
+SG,2024-04,2024,High-Energy Pop,2
+SG,2024-04,2024,Dance / EDM,1
+SG,2024-05,2024,Dance / EDM,2
+SG,2024-05,2024,Emo / Sad Chill,1
+SG,2024-05,2024,High-Energy Pop,1
+SG,2024-05,2024,Mellow Acoustic,1
+SG,2024-06,2024,Alternative / Experimental,2
+SG,2024-06,2024,High-Energy Pop,2
+SG,2024-06,2024,Dance / EDM,1
+SG,2024-07,2024,Alternative / Experimental,2
+SG,2024-07,2024,Mellow Acoustic,2
+SG,2024-07,2024,High-Energy Pop,1
+SG,2024-08,2024,Alternative / Experimental,2
+SG,2024-08,2024,Emo / Sad Chill,1
+SG,2024-08,2024,High-Energy Pop,1
+SG,2024-08,2024,Mellow Acoustic,1
+SG,2024-09,2024,Alternative / Experimental,2
+SG,2024-09,2024,Mellow Acoustic,2
+SG,2024-09,2024,Classic / Evergreen,1
+SG,2024-10,2024,Alternative / Experimental,2
+SG,2024-10,2024,High-Energy Pop,2
+SG,2024-10,2024,Mellow Acoustic,1
+SG,2024-11,2024,Rap / Trap Vibes,2
+SG,2024-11,2024,Alternative / Experimental,1
+SG,2024-11,2024,High-Energy Pop,1
+SG,2024-11,2024,Mellow Acoustic,1
+SG,2024-12,2024,Rap / Trap Vibes,2
+SG,2024-12,2024,Alternative / Experimental,1
+SG,2024-12,2024,High-Energy Pop,1
+SG,2024-12,2024,Mellow Acoustic,1
+SG,2025-01,2025,Mellow Acoustic,2
+SG,2025-01,2025,Alternative / Experimental,1
+SG,2025-01,2025,High-Energy Pop,1
+SG,2025-01,2025,Rap / Trap Vibes,1
+SG,2025-02,2025,Alternative / Experimental,1
+SG,2025-02,2025,Emo / Sad Chill,1
+SG,2025-02,2025,High-Energy Pop,1
+SG,2025-02,2025,Mellow Acoustic,1
+SG,2025-02,2025,Rap / Trap Vibes,1
+SG,2025-03,2025,Alternative / Experimental,1
+SG,2025-03,2025,Emo / Sad Chill,1
+SG,2025-03,2025,High-Energy Pop,1
+SG,2025-03,2025,Mellow Acoustic,1
+SG,2025-03,2025,Rap / Trap Vibes,1
+SG,2025-04,2025,Emo / Sad Chill,2
+SG,2025-04,2025,Mellow Acoustic,2
+SG,2025-04,2025,High-Energy Pop,1
+SG,2025-05,2025,Mellow Acoustic,2
+SG,2025-05,2025,Alternative / Experimental,1
+SG,2025-05,2025,Emo / Sad Chill,1
+SG,2025-05,2025,High-Energy Pop,1
+SG,2025-06,2025,Mellow Acoustic,2
+SG,2025-06,2025,Classic / Evergreen,1
+SG,2025-06,2025,Emo / Sad Chill,1
+SG,2025-06,2025,High-Energy Pop,1
+TH,2023-10,2023,High-Energy Pop,2
+TH,2023-10,2023,Alternative / Experimental,1
+TH,2023-10,2023,Classic / Evergreen,1
+TH,2023-10,2023,Emo / Sad Chill,1
+TH,2023-11,2023,High-Energy Pop,2
+TH,2023-11,2023,Alternative / Experimental,1
+TH,2023-11,2023,Classic / Evergreen,1
+TH,2023-11,2023,Dance / EDM,1
+TH,2023-12,2023,High-Energy Pop,2
+TH,2023-12,2023,Alternative / Experimental,1
+TH,2023-12,2023,Classic / Evergreen,1
+TH,2023-12,2023,Emo / Sad Chill,1
+TH,2024-01,2024,High-Energy Pop,3
+TH,2024-01,2024,Classic / Evergreen,1
+TH,2024-01,2024,Emo / Sad Chill,1
+TH,2024-02,2024,Classic / Evergreen,3
+TH,2024-02,2024,Emo / Sad Chill,1
+TH,2024-02,2024,High-Energy Pop,1
+TH,2024-03,2024,Classic / Evergreen,3
+TH,2024-03,2024,High-Energy Pop,2
+TH,2024-04,2024,Classic / Evergreen,3
+TH,2024-04,2024,High-Energy Pop,2
+TH,2024-05,2024,Classic / Evergreen,2
+TH,2024-05,2024,High-Energy Pop,2
+TH,2024-05,2024,Emo / Sad Chill,1
+TH,2024-06,2024,Alternative / Experimental,1
+TH,2024-06,2024,Classic / Evergreen,1
+TH,2024-06,2024,Dance / EDM,1
+TH,2024-06,2024,Emo / Sad Chill,1
+TH,2024-06,2024,High-Energy Pop,1
+TH,2024-07,2024,High-Energy Pop,2
+TH,2024-07,2024,Alternative / Experimental,1
+TH,2024-07,2024,Classic / Evergreen,1
+TH,2024-07,2024,Mellow Acoustic,1
+TH,2024-08,2024,Alternative / Experimental,1
+TH,2024-08,2024,Classic / Evergreen,1
+TH,2024-08,2024,Dance / EDM,1
+TH,2024-08,2024,Emo / Sad Chill,1
+TH,2024-08,2024,Mellow Acoustic,1
+TH,2024-09,2024,High-Energy Pop,2
+TH,2024-09,2024,Classic / Evergreen,1
+TH,2024-09,2024,Dance / EDM,1
+TH,2024-09,2024,Mellow Acoustic,1
+TH,2024-10,2024,Classic / Evergreen,1
+TH,2024-10,2024,Dance / EDM,1
+TH,2024-10,2024,High-Energy Pop,1
+TH,2024-10,2024,Mellow Acoustic,1
+TH,2024-10,2024,Rap / Trap Vibes,1
+TH,2024-11,2024,Rap / Trap Vibes,2
+TH,2024-11,2024,Classic / Evergreen,1
+TH,2024-11,2024,High-Energy Pop,1
+TH,2024-11,2024,Mellow Acoustic,1
+TH,2024-12,2024,Mellow Acoustic,3
+TH,2024-12,2024,Alternative / Experimental,1
+TH,2024-12,2024,High-Energy Pop,1
+TH,2025-01,2025,Mellow Acoustic,3
+TH,2025-01,2025,Classic / Evergreen,1
+TH,2025-01,2025,High-Energy Pop,1
+TH,2025-02,2025,Mellow Acoustic,3
+TH,2025-02,2025,High-Energy Pop,1
+TH,2025-02,2025,Rap / Trap Vibes,1
+TH,2025-03,2025,Mellow Acoustic,3
+TH,2025-03,2025,High-Energy Pop,1
+TH,2025-03,2025,Rap / Trap Vibes,1
+TH,2025-04,2025,Mellow Acoustic,2
+TH,2025-04,2025,Dance / EDM,1
+TH,2025-04,2025,Emo / Sad Chill,1
+TH,2025-04,2025,Rap / Trap Vibes,1
+TH,2025-05,2025,Mellow Acoustic,2
+TH,2025-05,2025,Alternative / Experimental,1
+TH,2025-05,2025,Classic / Evergreen,1
+TH,2025-05,2025,Rap / Trap Vibes,1
+TH,2025-06,2025,Mellow Acoustic,2
+TH,2025-06,2025,Rap / Trap Vibes,2
+TH,2025-06,2025,Alternative / Experimental,1

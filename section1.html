@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Today’s Hits by Country</title>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <style>
+    :root { --brand:#4f46e5; }
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+      margin: 0; padding: 0; line-height: 1.45; color: #111; background: #f8fafc;
+    }
+    /* Navbar */
+    nav.navbar { background: var(--brand); padding: 1rem; }
+    nav ul.nav-tabs { list-style: none; display: flex; justify-content: center; gap: 1.5rem; margin: 0; padding: 0; }
+    nav ul.nav-tabs li a { color: #fff; text-decoration: none; font-weight: 500; padding-bottom: .25rem; border-bottom: 2px solid transparent; }
+    nav ul.nav-tabs li a:hover { text-decoration: underline; }
+    nav ul.nav-tabs li a.active { border-bottom-color: #fff; }
+
+    /* Header + controls */
+    .header { display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; padding:24px; }
+    h1 { margin:0 0 8px 0; font-size:22px; }
+    .meta { color:#555; font-size:13px; }
+    .controls { display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+    label { font-size:13px; color:#333; }
+    select, button { padding:6px 10px; border-radius:10px; border:1px solid #ddd; background:#fff; font-size:14px; }
+    .toggle { display:inline-flex; border:1px solid #ddd; border-radius:10px; overflow:hidden; }
+    .toggle button { border:none; background:#fff; cursor:pointer; padding:6px 12px; }
+    .toggle button.active { background:#f0f0f0; font-weight:600; }
+
+    /* Chart + findings */
+    #chart { width:100%; height:520px; max-width:1100px; margin:0 auto; }
+    .findings { margin:16px auto; padding:12px 14px; background:#fafafa; border:1px solid #eee; border-radius:12px; max-width:1100px; }
+    .error { color:#b91c1c; }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <ul class="nav-tabs">
+      <li><a href="index.html">Dashboard</a></li>
+      <li><a href="section2.html">Vibe Trends Over Time</a></li>
+      <li><a href="Section4.html">Global Vibe Trends</a></li>
+      <li><a href="section1.html" class="active">Today’s Hits</a></li>
+      <li><a href="upcoming_artists_quadrant_report.html">Upcoming Artists</a></li>
+      <li><a href="vibe_recommendations_dashboard.html">Vibe Recommendations</a></li>
+    </ul>
+  </nav>
+
+  <div class="header">
+    <div>
+      <h1>Today’s Hits in <span id="titleCountry">Country</span></h1>
+      <div class="meta">Top-5 vibes · Bar chart with toggle to pie · Auto-updating findings</div>
+    </div>
+    <div class="controls">
+      <label for="countrySel">Country</label>
+      <select id="countrySel"></select>
+
+      <label for="periodSel">Period</label>
+      <select id="periodSel"></select>
+
+      <div class="toggle" role="group" aria-label="Chart toggle">
+        <button id="barBtn" class="active">Bar</button>
+        <button id="pieBtn">Pie</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="chart"></div>
+
+  <div class="findings">
+    <strong>Findings</strong>
+    <div id="findingsText">—</div>
+    <div id="errorText" class="error"></div>
+  </div>
+
+  <script>
+    // Country code → full name
+    const COUNTRY_NAMES = { SG:"Singapore", MY:"Malaysia", ID:"Indonesia", TH:"Thailand", PH:"Philippines" };
+
+    // UI refs
+    const countrySel   = document.getElementById('countrySel');
+    const periodSel    = document.getElementById('periodSel');
+    const titleCountry = document.getElementById('titleCountry');
+    const barBtn       = document.getElementById('barBtn');
+    const pieBtn       = document.getElementById('pieBtn');
+    const findingsText = document.getElementById('findingsText');
+    const errorText    = document.getElementById('errorText');
+
+    // State
+    let STATE = { chart:'bar', DATA:{}, PERIODS_BY_COUNTRY:{} };
+
+    // ---- Load CSV and build DATA ----
+    async function loadCounts() {
+      const res = await fetch('./slide1_vibe_top5_counts.csv');  // CSV must sit beside this HTML
+      if (!res.ok) throw new Error(`CSV fetch failed (${res.status})`);
+      const text = await res.text();
+      const rows = text.trim().split('\n').map(r => r.split(','));
+      const header = rows[0].map(h => h.trim());
+      const idx = Object.fromEntries(header.map((h,i)=>[h,i]));
+
+      const DATA = {}; // {country: {period: [{vibe, top5_count, year}]}}
+      for (let r=1; r<rows.length; r++) {
+        const row = rows[r];
+        const country = row[idx.country];
+        const period  = row[idx.period];   // YYYY-MM
+        const year    = +row[idx.year];
+        const vibe    = row[idx.vibe];
+        const count   = +row[idx.top5_count];
+        if (!DATA[country]) DATA[country] = {};
+        if (!DATA[country][period]) DATA[country][period] = [];
+        DATA[country][period].push({ vibe, top5_count: count, year });
+      }
+      const PERIODS_BY_COUNTRY = Object.fromEntries(
+        Object.entries(DATA).map(([c, p]) => [c, Object.keys(p).sort()])
+      );
+      return { DATA, PERIODS_BY_COUNTRY };
+    }
+
+    // ---- UI wiring ----
+    function populateCountries() {
+      countrySel.innerHTML = '';
+      Object.keys(STATE.DATA).sort().forEach(c => {
+        const opt = document.createElement('option');
+        opt.value = c; opt.textContent = COUNTRY_NAMES[c] || c;
+        countrySel.appendChild(opt);
+      });
+      if (countrySel.options.length) countrySel.value = countrySel.options[0].value;
+    }
+
+    function updatePeriods() {
+      const c = countrySel.value;
+      periodSel.innerHTML = '';
+      (STATE.PERIODS_BY_COUNTRY[c] || []).forEach(p => {
+        const opt = document.createElement('option');
+        opt.value = p; opt.textContent = p;
+        periodSel.appendChild(opt);
+      });
+      if (periodSel.options.length) periodSel.value = periodSel.options[0].value;
+    }
+
+    function attachEvents() {
+      countrySel.addEventListener('change', () => { updatePeriods(); draw(); });
+      periodSel.addEventListener('change', draw);
+      barBtn.addEventListener('click', () => { STATE.chart='bar'; barBtn.classList.add('active'); pieBtn.classList.remove('active'); draw(); });
+      pieBtn.addEventListener('click', () => { STATE.chart='pie'; pieBtn.classList.add('active'); barBtn.classList.remove('active'); draw(); });
+    }
+
+    // ---- Draw chart + findings ----
+    function draw() {
+      errorText.textContent = '';
+      const c = countrySel.value;
+      const p = periodSel.value;
+      titleCountry.textContent = COUNTRY_NAMES[c] || c;
+
+      const rows = (STATE.DATA[c] && STATE.DATA[c][p]) ? STATE.DATA[c][p] : [];
+      const labels = rows.map(r => r.vibe);
+      const values = rows.map(r => r.top5_count);
+      const total  = values.reduce((a,b)=>a+b, 0);
+      const year   = rows[0]?.year ?? '';
+
+      // Findings
+      let finding = 'No data.';
+      if (rows.length) {
+        const sorted = [...rows].sort((a,b)=>b.top5_count-a.top5_count);
+        const top = sorted[0];
+        const share = total ? Math.round((top.top5_count/total)*100) : 0;
+        finding = `In ${(COUNTRY_NAMES[c]||c)} for ${p} (year ${year}), the dominant vibe is <strong>${top.vibe}</strong> at <strong>${share}%</strong> of Top-5 tracks.`;
+        if (sorted.length > 1) {
+          const second = sorted[1];
+          const gapPct = total ? Math.round((Math.abs(top.top5_count-second.top5_count)/total)*100) : 0;
+          finding += ` Runner-up: <strong>${second.vibe}</strong> (gap ~${gapPct} pts).`;
+        }
+        finding += ` Coverage: <strong>${total}</strong> tracks (Top-5).`;
+      }
+      findingsText.innerHTML = finding;
+
+      if (STATE.chart === 'bar') {
+        Plotly.newPlot('chart', [{
+          type:'bar', x:labels, y:values,
+          text: values.map(v=>String(v)), textposition:'auto',
+          hovertemplate:'%{x}<br>Top-5 count: %{y}<extra></extra>'
+        }], {
+          margin:{t:30,r:10,b:60,l:50}, xaxis:{title:'Vibe'}, yaxis:{title:'Top-5 count', rangemode:'tozero'}, title:''
+        }, {displayModeBar:false, responsive:true});
+      } else {
+        Plotly.newPlot('chart', [{
+          type:'pie', labels, values, textinfo:'label+percent',
+          hovertemplate:'%{label}<br>%{value} of Top-5<extra></extra>', hole:0.35
+        }], { margin:{t:30,r:10,b:40,l:10}, title:'' }, {displayModeBar:false, responsive:true});
+      }
+    }
+
+    // ---- Boot ----
+    (async () => {
+      try {
+        const { DATA, PERIODS_BY_COUNTRY } = await loadCounts();
+        STATE.DATA = DATA;
+        STATE.PERIODS_BY_COUNTRY = PERIODS_BY_COUNTRY;
+        populateCountries();
+        updatePeriods();
+        attachEvents();
+        draw();
+      } catch (err) {
+        errorText.textContent = 'Failed to load data. If opening this file locally, use a local server (e.g. VS Code Live Server or `python -m http.server`).';
+        console.error(err);
+      }
+    })();
+  </script>
+</body>
+</html>
+
