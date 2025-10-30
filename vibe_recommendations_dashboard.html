@@ -1,153 +1,294 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Vibe Recommendations Dashboard</title>
 
   <!-- Plotly + PapaParse -->
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
 
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #F4F6F8;
-      color: #222;
-      margin: 0;
-      padding: 0;
+    /* ====== Navbar styling (shared) ====== */
+    :root{
+      --accent:#4f46e5;
+      --bg:#f8fafc;
+      --card:#ffffff;
+      --muted:#666666;
+      --page-width:1100px;
+      --radius:12px;
+      --shadow: 0 4px 20px rgba(0,0,0,0.08);
     }
+
+    body{
+      margin:0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg);
+      color:#222;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+    .navbar{
+      background-color: var(--accent);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .nav-container{
+      max-width: var(--page-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .nav-tabs{
+      display:flex;
+      list-style:none;
+      margin:0;
+      padding:0;
+      overflow-x:auto;
+    }
+    .nav-tab{ flex:0 0 auto; }
+    .nav-link{
+      display:block;
+      padding:14px 18px;
+      color: rgba(255,255,255,0.9);
+      text-decoration:none;
+      font-weight:500;
+      border-bottom:3px solid transparent;
+      transition: all .18s ease;
+      white-space:nowrap;
+    }
+    .nav-link:hover{ background: rgba(255,255,255,0.06); color:#fff; }
+    .nav-link.active{ background: rgba(255,255,255,0.06); color:#fff; border-bottom-color:#fff; }
+
+    /* ===== Page container ===== */
+    .page {
+      max-width: var(--page-width);
+      margin: 26px auto;
+      padding: 0 20px 60px;
+    }
+
+    header{
+      text-align:center;
+      margin-bottom: 8px;
+    }
+    header h1{
+      margin: 18px 0 6px;
+      color: var(--accent);
+      font-size: 28px;
+    }
+    header p.subtitle{
+      margin:0;
+      color:var(--muted);
+      font-size: 14px;
+    }
+
+    main{
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 22px;
+      margin-top:18px;
+    }
+
+    h2{
+      margin: 8px 0 14px;
+      color: var(--accent);
+      font-size: 18px;
+    }
+
     .section {
-      padding: 40px 60px;
-      margin: 30px auto;
-      background-color: #fff;
-      box-shadow: 0px 3px 10px rgba(0,0,0,0.1);
-      border-radius: 12px;
-      width: 85%;
+      padding: 20px;
+      margin-bottom: 18px;
+      border-radius: 10px;
+      background: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
     }
-    h1 {
-      text-align: center;
-      font-size: 36px;
-      color: #111;
-      margin-top: 30px;
-    }
-    h2 { color: #333; }
-    .analysis-box {
-      background-color: #F9FAFB;
-      border-left: 5px solid #4F46E5;
-      padding: 15px 20px;
-      margin-top: 20px;
+
+    .analysis-box{
+      background: #fbfdff;
+      border-left: 4px solid var(--accent);
+      padding: 12px 14px;
+      margin-top: 12px;
       border-radius: 6px;
-      font-size: 15px;
-      line-height: 1.6;
+      color: #334155;
+      font-size: 14px;
+      line-height: 1.5;
     }
-    #chart1, #chart2, #chart3 {
-      width: 100%;
+
+    .chart-container{
+      width:100%;
       height: 600px;
+      min-height: 380px;
+    }
+
+    /* small screens */
+    @media (max-width:900px){
+      .chart-container{ height: 420px; }
+      header h1{ font-size:22px; }
+      .nav-link{ padding:12px 14px; font-size:14px; }
     }
   </style>
 </head>
 <body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <ul class="nav-tabs" role="navigation" aria-label="Main navigation">
+        <li class="nav-tab"><a href="index.html" class="nav-link">Dashboard</a></li>
+        <li class="nav-tab"><a href="section2.html" class="nav-link">Vibe Trends Over Time</a></li>
+        <li class="nav-tab"><a href="Section4.html" class="nav-link">Global Vibe Trends</a></li>
+        <li class="nav-tab"><a href="slide1_todays_hits_onepage.html" class="nav-link">Today's Hits</a></li>
+        <li class="nav-tab"><a href="upcoming_artists_quadrant_report.html" class="nav-link">Upcoming Artists</a></li>
+        <!-- Active link for this page -->
+        <li class="nav-tab"><a href="vibe_recommendations_dashboard.html" class="nav-link active">Vibe Recommendations</a></li>
+      </ul>
+    </div>
+  </nav>
 
-<h1>🌍 Global Vibe Recommendations</h1>
+  <div class="page">
+    <header>
+      <h1>🌍 Global Vibe Recommendations</h1>
+    </header>
 
-<div class="section">
-  <h2>1️⃣ Momentum vs Popularity</h2>
-  <div id="chart1"></div>
-  <div class="analysis-box">
-    <b>Analysis:</b> Vibes in the top-right quadrant are both popular and gaining momentum — clear indicators of what’s trending globally. Dance/EDM and High-Energy Pop dominate this space, suggesting growing audience energy and repeat listen rates.
+    <main>
+      <div class="section">
+        <h2>1️⃣ Momentum vs Popularity</h2>
+        <div id="chart1" class="chart-container" role="img" aria-label="Momentum vs Popularity chart"></div>
+        <div class="analysis-box">
+          <strong>Analysis:</strong> Vibes in the top-right quadrant are both popular and gaining momentum — ideal targets for promotion. Use this to prioritise playlists and regional marketing.
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>2️⃣ Popularity Trends Over Time</h2>
+        <div id="chart2" class="chart-container" role="img" aria-label="Popularity trends over time chart"></div>
+        <div class="analysis-box">
+          <strong>Analysis:</strong> Observe which vibes are building over multiple months. Steady climbs suggest durable trends; spikes may indicate viral events.
+        </div>
+      </div>
+
+      <div class="section">
+        <h2>3️⃣ Latest Momentum by Country</h2>
+        <div id="chart3" class="chart-container" role="img" aria-label="Latest momentum by country chart"></div>
+        <div class="analysis-box">
+          <strong>Analysis:</strong> Country-level momentum shows where to localise promotions. Large positive values indicate rising listener interest for that vibe.
+        </div>
+      </div>
+    </main>
   </div>
-</div>
 
-<div class="section">
-  <h2>2️⃣ Popularity Trends Over Time</h2>
-  <div id="chart2"></div>
-  <div class="analysis-box">
-    <b>Analysis:</b> Over time, High-Energy Pop and Dance/EDM show a steady upward climb in popularity, while Mellow Acoustic and Emo/Sad Chill fluctuate.
-  </div>
-</div>
+  <script>
+    // Helper: sort months safely (YYYY-MM or YYYY-MM-DD)
+    function monthKey(m){
+      // return string as-is if in YYYY-MM or YYYY-MM-DD formats
+      return (m||'').toString();
+    }
 
-<div class="section">
-  <h2>3️⃣ Latest Momentum by Country</h2>
-  <div id="chart3"></div>
-  <div class="analysis-box">
-    <b>Analysis:</b> Each country’s momentum varies — for instance, EDM is surging in Australia and Canada, while Mellow Acoustic vibes dominate Europe.
-  </div>
-</div>
+    function buildCharts(data){
+      const df = data.filter(r => r.vibe && r.popularity !== undefined && r.momentum !== undefined);
 
-<script>
-  Papa.parse("recommendation_cards_final.csv", {
-    download: true,
-    header: true,
-    dynamicTyping: true,
-    complete: function(results) {
-      const df = results.data.filter(row => row.vibe && row.popularity && row.momentum);
+      // normalize numbers
+      df.forEach(r => {
+        r.popularity = +r.popularity;
+        r.momentum = +r.momentum;
+        r.year_month = (r.year_month || r.year || '').toString();
+        r.country = (r.country || '').toString();
+        r.vibe = (r.vibe || 'Other').toString();
+      });
 
-      // === Chart 1: Scatter ===
-      const vibes = [...new Set(df.map(d => d.vibe))];
-      const scatterData = vibes.map(vibe => {
-        const subset = df.filter(d => d.vibe === vibe);
+      const vibes = Array.from(new Set(df.map(d => d.vibe))).sort();
+
+      // Chart 1: scatter (popularity x momentum)
+      const scatterTraces = vibes.map(v => {
+        const subset = df.filter(d => d.vibe === v);
         return {
-          x: subset.map(d => +d.popularity),
-          y: subset.map(d => +d.momentum),
+          x: subset.map(s => s.popularity),
+          y: subset.map(s => s.momentum),
+          text: subset.map(s => s.country + ' — ' + s.year_month),
           mode: 'markers',
-          type: 'scatter',
-          name: vibe,
-          marker: { size: 10, opacity: 0.8 }
+          marker: { size: 10, opacity: 0.85 },
+          name: v,
+          type: 'scatter'
         };
       });
-      Plotly.newPlot("chart1", scatterData, {
-        title: "Momentum vs Popularity — Finding the Next Big Vibe",
-        xaxis: { title: "Popularity" },
-        yaxis: { title: "Momentum" },
-        template: "plotly_white"
-      });
 
-      // === Chart 2: Line ===
-      const lineData = vibes.map(vibe => {
-        const subset = df.filter(d => d.vibe === vibe).sort((a,b) => a.year_month.localeCompare(b.year_month));
+      Plotly.react('chart1', scatterTraces, {
+        title: 'Momentum vs Popularity - Finding the Next Big Vibe',
+        xaxis:{ title:'Popularity' },
+        yaxis:{ title:'Momentum' },
+        margin:{ t:60, l:60, r:30, b:60 },
+        template:'plotly_white'
+      }, {responsive:true});
+
+      // Chart 2: lines over time per vibe
+      const lineTraces = vibes.map(v => {
+        const subset = df.filter(d => d.vibe === v).sort((a,b) => monthKey(a.year_month).localeCompare(monthKey(b.year_month)));
         return {
-          x: subset.map(d => d.year_month),
-          y: subset.map(d => +d.popularity),
+          x: subset.map(s => s.year_month),
+          y: subset.map(s => s.popularity),
           mode: 'lines+markers',
-          name: vibe
+          name: v,
+          type: 'scatter'
         };
       });
-      Plotly.newPlot("chart2", lineData, {
-        title: "Popularity Trends Over Time by Vibe",
-        xaxis: { title: "Month" },
-        yaxis: { title: "Popularity" },
-        template: "plotly_white"
-      });
 
-      // === Chart 3: Bar (Latest Momentum by Country) ===
+      Plotly.react('chart2', lineTraces, {
+        title: 'Popularity Trends Over Time by Vibe',
+        xaxis:{ title:'Month' },
+        yaxis:{ title:'Popularity' },
+        margin:{ t:60, l:60, r:30, b:120 },
+        template:'plotly_white'
+      }, {responsive:true});
+
+      // Chart 3: latest momentum by country grouped by vibe
+      // get latest year_month per country+vibe
       const latestMap = {};
       df.forEach(d => {
-        const key = d.country + "_" + d.vibe;
-        if (!latestMap[key] || d.year_month > latestMap[key].year_month) {
+        const key = d.country + '||' + d.vibe;
+        if(!latestMap[key] || monthKey(d.year_month) > monthKey(latestMap[key].year_month)){
           latestMap[key] = d;
         }
       });
       const latest = Object.values(latestMap);
-      const countries = [...new Set(latest.map(d => d.country))];
-      const barData = vibes.map(vibe => {
-        const subset = latest.filter(d => d.vibe === vibe);
+
+      const barTraces = vibes.map(v => {
+        const subset = latest.filter(d => d.vibe === v).sort((a,b)=> a.country.localeCompare(b.country));
         return {
-          x: subset.map(d => d.country),
-          y: subset.map(d => +d.momentum),
-          type: 'bar',
-          name: vibe
+          x: subset.map(s => s.country),
+          y: subset.map(s => s.momentum),
+          name: v,
+          type: 'bar'
         };
       });
-      Plotly.newPlot("chart3", barData, {
-        title: "Latest Momentum by Country — What’s Trending Where",
-        xaxis: { title: "Country" },
-        yaxis: { title: "Momentum" },
-        barmode: 'group',
-        template: "plotly_white"
-      });
+
+      Plotly.react('chart3', barTraces, {
+        title: "Latest Momentum by Country - What's Trending Where",
+        xaxis:{ title:'Country', tickangle: -45, automargin:true },
+        yaxis:{ title:'Momentum' },
+        barmode:'group',
+        margin:{ t:60, l:60, r:30, b:200 },
+        template:'plotly_white'
+      }, {responsive:true});
     }
-  });
-</script>
+
+    // Load CSV dynamically using PapaParse
+    Papa.parse("recommendation_cards_final.csv", {
+      download: true,
+      header: true,
+      dynamicTyping: true,
+      skipEmptyLines: true,
+      complete: function(results){
+        buildCharts(results.data);
+      },
+      error: function(err){
+        console.error('CSV load error', err);
+        document.getElementById('chart1').innerText = 'Error loading CSV: ' + err;
+      }
+    });
+  </script>
 </body>
 </html>
-
