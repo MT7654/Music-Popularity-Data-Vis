@@ -63,7 +63,7 @@ d3.csv("Spotify_Data_Aggregated_5Y(1).csv").then(function(data) {
         legend: { orientation: 'h', y: -0.2 },
         paper_bgcolor: 'rgba(0,0,0,0)',
         plot_bgcolor: 'rgba(0,0,0,0)',
-        font: { color: '#00ffff' }
+        font: { color: '#003333' }
     });
 
     // -------------------------------
@@ -101,7 +101,7 @@ d3.csv("Spotify_Data_Aggregated_5Y(1).csv").then(function(data) {
         hovermode: 'x',
         paper_bgcolor: 'rgba(0,0,0,0)',
         plot_bgcolor: 'rgba(0,0,0,0)',
-        font: { color: '#00ffff' }
+        font: { color: '#003333' }
     });
 
     // -------------------------------
@@ -142,6 +142,6 @@ d3.csv("Spotify_Data_Aggregated_5Y(1).csv").then(function(data) {
         hovermode: 'closest',
         paper_bgcolor: 'rgba(0,0,0,0)',
         plot_bgcolor: 'rgba(0,0,0,0)',
-        font: { color: '#00ffff' }
+        font: { color: '#003333' }
     });
 });

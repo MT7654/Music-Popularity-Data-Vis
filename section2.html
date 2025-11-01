@@ -8,7 +8,7 @@
   <script src="https://cdn.plot.ly/plotly-2.25.2.min.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   
-    <style>
+  <style>
     /* Base styles */
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -73,93 +73,108 @@
       margin: 40px auto;
       padding: 0 20px;
     }
-    
-    .welcome-card {
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      padding: 40px;
+
+    h1 {
       text-align: center;
-    }
-    
-    .welcome-card h1 {
-      margin-top: 0;
-      color: #4f46e5;
-    }
-    
-    .welcome-card p {
-      font-size: 18px;
-      line-height: 1.6;
-      color: #666;
-      max-width: 800px;
-      margin: 0 auto 30px;
-    }
-    
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
+      color: #1e1b4b;
       margin-top: 40px;
     }
-    
-    .card {
+
+    .chart-container {
       background: white;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-      padding: 25px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      padding: 30px;
+      margin: 40px auto;
+      max-width: 1100px;
     }
-    
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+
+    /* Analysis box styling */
+    .analysis-box {
+      background-color: #eef2ff;
+      border-left: 6px solid #4f46e5;
+      border-radius: 8px;
+      padding: 15px 20px;
+      margin-top: 20px;
+      color: #333;
     }
-    
-    .card h3 {
-      margin-top: 0;
+
+    .analysis-box strong {
       color: #4f46e5;
     }
-    
-    .card p {
-      color: #666;
-      line-height: 1.5;
+
+    .analysis-box em {
+      color: #1e1b4b;
+      font-style: normal;
+      font-weight: 600;
     }
-    
+
     /* Responsive styles */
     @media (max-width: 768px) {
       .nav-tabs {
         justify-content: flex-start;
       }
       
-      .welcome-card {
-        padding: 25px;
+      .chart-container {
+        padding: 20px;
       }
-      
-      .card-grid {
-        grid-template-columns: 1fr;
+
+      .analysis-box {
+        font-size: 15px;
       }
     }
   </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-      <div class="nav-container">
-        <ul class="nav-tabs">
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <ul class="nav-tabs">
         <li class="nav-tab"><a href="index.html" class="nav-link">Dashboard</a></li>
-        <li class="nav-tab"><a href="section2.html" class="nav-link">Vibe Trends Over Time</a></li>
-        <li class="nav-tab"><a href="Section4.html" class="nav-link active">Global Vibe Trends</a></li>
+        <li class="nav-tab"><a href="section2.html" class="nav-link active">Vibe Trends Over Time</a></li>
+        <li class="nav-tab"><a href="Section4.html" class="nav-link">Global Vibe Trends</a></li>
         <li class="nav-tab"><a href="section1.html" class="nav-link">Today's Hits</a></li>
         <li class="nav-tab"><a href="upcoming_artists_quadrant_report.html" class="nav-link">Upcoming Artists</a></li>
         <li class="nav-tab"><a href="vibe_recommendations_dashboard.html" class="nav-link">Vibe Recommendations</a></li>
-        </ul>
-      </div>
-    </nav>
+      </ul>
+    </div>
+  </nav>
+
   <h1>How We Got Here — Vibe Trends Over Time</h1>
 
-  <div class="chart-container"><div id="area-chart"></div></div>
-  <div class="chart-container"><div id="line-chart"></div></div>
-  <div class="chart-container"><div id="vibe-heatmap"></div></div>
+  <!-- Area Chart -->
+  <div class="chart-container">
+    <div id="area-chart"></div>
+    <div class="analysis-box">
+      <strong>Analysis:</strong> This chart shows how different music <em>vibes</em> have fluctuated in popularity from 2020 to 2025. 
+      <em>Alternative/Experimental</em> and <em>Classic/Evergreen</em> vibes have remained consistently strong. 
+      <em>Dance/EDM</em> and <em>High-Energy Pop</em> rose steadily through 2022–2024, while <em>Emo/Sad Chill</em> stayed moderate. 
+      A small dip appears in early 2025, possibly seasonal.
+    </div>
+  </div>
+
+  <!-- Line Chart -->
+  <div class="chart-container">
+    <div id="line-chart"></div>
+    <div class="analysis-box">
+      <strong>Analysis:</strong> This line chart compares vibe popularity in <em>Australia (AU)</em>, <em>New Zealand (NZ)</em>, 
+      <em>Peru (PE)</em>, <em>Paraguay (PY)</em>, and <em>Philippines (PH)</em>. 
+      <br><em>Australia</em> and <em>New Zealand</em> maintain stable trends, while <em>Paraguay</em> and <em>Peru</em> show more fluctuation. 
+      <em>The Philippines</em> exhibits short peaks, suggesting rapidly shifting preferences.
+    </div>
+  </div>
+
+  <!-- Heatmap -->
+  <div class="chart-container">
+    <div id="vibe-heatmap"></div>
+    <div class="analysis-box">
+      <strong>Analysis:</strong> This heatmap highlights how vibe categories perform by country. 
+      <em>Classic/Evergreen</em> thrives in <em>Ireland (IE)</em> and <em>Canada (CA)</em>, 
+      <em>Dance/EDM</em> is popular in <em>Australia</em> and <em>Canada</em>, 
+      and <em>Mellow Acoustic</em> stands out in <em>Singapore (SG)</em>. 
+      The variety in tones reflects diverse global listening habits.
+    </div>
+  </div>
 
   <script src="section2.js?v=2"></script>
 
