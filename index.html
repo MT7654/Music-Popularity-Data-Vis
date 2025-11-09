@@ -16,38 +16,47 @@
       min-height: 100vh;
     }
 
-    /* Navbar */
     .navbar {
       background-color: #4f46e5;
       color: white;
-      padding: 10px 0;
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 1000;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
     .nav-container {
       max-width: 1200px;
       margin: 0 auto;
-      display: flex;
-      justify-content: center;
+      padding: 0 20px;
     }
     .nav-tabs {
-      list-style: none;
       display: flex;
+      list-style: none;
       margin: 0;
       padding: 0;
+      overflow-x: auto;
+    }
+    .nav-tab {
+      flex: 0 0 auto;
     }
     .nav-link {
-      color: rgba(255,255,255,0.9);
+      display: block;
+      padding: 14px 20px;
+      color: rgba(255,255,255,0.8);
       text-decoration: none;
-      padding: 12px 18px;
-      border-radius: 6px;
-      transition: 0.3s;
+      font-weight: 500;
+      border-bottom: 3px solid transparent;
+      transition: all 0.25s ease;
+      white-space: nowrap;
     }
-    .nav-link:hover, .nav-link.active {
-      background: rgba(255,255,255,0.15);
-      color: white;
+    .nav-link:hover {
+      color: #fff;
+      background-color: rgba(255,255,255,0.08);
+    }
+    .nav-link.active {
+      color: #fff;
+      border-bottom-color: #fff;
+      background-color: rgba(255,255,255,0.08);
     }
 
     /* Intro Section */
@@ -157,15 +166,16 @@
 </head>
 
 <body>
+  <!-- matched navbar -->
   <nav class="navbar">
     <div class="nav-container">
       <ul class="nav-tabs">
-        <li><a href="index.html" class="nav-link active">Dashboard</a></li>
-        <li><a href="section2.html" class="nav-link">Vibe Trends Over Time</a></li>
-        <li><a href="Section4.html" class="nav-link">Global Vibe Trends</a></li>
-        <li><a href="section1.html" class="nav-link">Today's Hits</a></li>
-        <li><a href="upcoming_artists_quadrant_report.html" class="nav-link">Upcoming Artists</a></li>
-        <li><a href="vibe_recommendations_dashboard.html" class="nav-link">Vibe Recommendations</a></li>
+        <li class="nav-tab"><a href="index.html" class="nav-link active">Dashboard</a></li>
+        <li class="nav-tab"><a href="section2.html" class="nav-link">Vibe Trends Over Time</a></li>
+        <li class="nav-tab"><a href="Section4.html" class="nav-link">Global Vibe Trends</a></li>
+        <li class="nav-tab"><a href="section1.html" class="nav-link">Today's Hits</a></li>
+        <li class="nav-tab"><a href="upcoming_artists_quadrant_report.html" class="nav-link">Upcoming Artists</a></li>
+        <li class="nav-tab"><a href="vibe_recommendations_dashboard.html" class="nav-link">Vibe Recommendations</a></li>
       </ul>
     </div>
   </nav>
@@ -173,7 +183,7 @@
   <div class="content">
     <div class="welcome-card">
       <h1>Music Vibe Analysis Dashboard</h1>
-      <p>Explore global music trends, discover upcoming artists, and get data‑driven recommendations for your next playlist. Navigate through the sections using the tabs above to dive deep into different aspects of music vibes across countries and time.</p>
+      <p>Explore global music trends, discover upcoming artists, and get data-driven recommendations for your next playlist. Navigate through the sections using the tabs above to dive deep into different aspects of music vibes across countries and time.</p>
     </div>
 
     <!-- Flow Section -->
@@ -192,11 +202,11 @@
       </div>
       <div class="flow-step">
         <h3>Upcoming Artists</h3>
-        <p>Find rising artists using momentum vs popularity quadrant analysis and top‑20 upcoming artists list.</p>
+        <p>Find rising artists using momentum vs popularity quadrant analysis and top-20 upcoming artists list.</p>
       </div>
       <div class="flow-step">
         <h3>Vibe Recommendations</h3>
-        <p>Get data‑driven recommendations based on momentum, popularity trends, and country‑specific insights.</p>
+        <p>Get data-driven recommendations based on momentum, popularity trends, and country-specific insights.</p>
       </div>
     </div>
 
@@ -216,7 +226,7 @@
 
   <script>
     const API_KEY = "AIzaSyB3wv_P_8RvTIFPuUo83wsiWaGjd6wA0nM";
-    const MODEL_NAME = "gemini-2.5-flash";  // updated to supported free‑tier model
+    const MODEL_NAME = "gemini-2.5-flash";
     const ENDPOINT = `https://generativelanguage.googleapis.com/v1/models/${MODEL_NAME}:generateContent?key=${API_KEY}`;
 
     const csvFiles = [
@@ -316,6 +326,16 @@ User question: ${question}
       addMessage("Thinking...", "bot");
       const reply = await askGemini(q);
       document.getElementById("chat-messages").lastChild.textContent = reply;
+    });
+
+    // optional: auto-mark active link based on filename
+    document.addEventListener("DOMContentLoaded", () => {
+      const current = window.location.pathname.split("/").pop() || "index.html";
+      document.querySelectorAll(".nav-link").forEach(link => {
+        if (link.getAttribute("href") === current) {
+          link.classList.add("active");
+        }
+      });
     });
 
     loadCSVs();
