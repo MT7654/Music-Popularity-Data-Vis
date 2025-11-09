@@ -35,6 +35,14 @@
     .controls {display:flex; gap:12px; flex-wrap:wrap; margin:12px 0 16px 0;}
     .controls label {font-size:13px; font-weight:500; color:#333;}
     .controls select {padding:6px 10px; border-radius:8px; border:1px solid #ddd;}
+
+    /* table styles */
+    .table-wrap {overflow-x:auto;}
+    table {width:100%; border-collapse:collapse; margin-top:14px; font-size:13px;}
+    th, td {border:1px solid #e5e7eb; padding:8px 10px; text-align:left;}
+    th {background:#eef2ff; color:#312e81; position:sticky; top:0; z-index:1;}
+    tbody tr:nth-child(even){background:#f8fafc;}
+    .small-note {font-size:12px; color:#64748b; margin-top:6px;}
   </style>
 </head>
 <body>
@@ -105,6 +113,33 @@
       </div>
 
       <div id="errorBox" class="error"></div>
+    </div>
+
+    <!-- ========== 3) TOP 20 UPCOMING ARTISTS (NEW) ========== -->
+    <div class="card" id="top20Card">
+      <h2>Top 20 Upcoming Artists 2025</h2>
+      <div class="hint">Sorted by Momentum (highest first).</div>
+      <div class="table-wrap">
+        <table id="top20Table">
+          <thead>
+            <tr>
+              <th>spotify_id</th>
+              <th>name</th>
+              <th>artists</th>
+              <th>snapshot_date</th>
+              <th>daily_movement</th>
+              <th>daily_rank</th>
+              <th>Momentum</th>
+              <th>Popularity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- filled by JS -->
+          </tbody>
+        </table>
+      </div>
+      <div class="small-note" id="top20Note"></div>
+      <div class="error" id="top20Error" style="display:none;"></div>
     </div>
   </div>
 
@@ -256,7 +291,7 @@
     });
 
 
-    /* ===== 2) MOMENTUM SCATTER ===== */
+    /* ===== 2) MOMENTUM SCATTER + TOP 20 ===== */
     const CSV_PATH = 'spotify_quadrant_points_top200_by_day.csv';
 
     const M_MARGIN = {top: 20, right: 20, bottom: 50, left: 70};
@@ -274,6 +309,10 @@
     const momentumTooltip = d3.select('#tooltip');
     const errorBox = d3.select('#errorBox');
 
+    const top20TableBody = document.querySelector('#top20Table tbody');
+    const top20Error = document.getElementById('top20Error');
+    const top20Note = document.getElementById('top20Note');
+
     function normalizeKey(s){ return String(s||'').toLowerCase().replace(/[^a-z0-9]/g,''); }
     function guessColumn(columns, candidates){
       const map = new Map(columns.map(c => [normalizeKey(c), c]));
@@ -285,7 +324,7 @@
 
     function computeFromRows(raw){
       const cols = Object.keys(raw[0]||{});
-      const artistCol = guessColumn(cols, [["artist","artist_name","singer"],["name"]]) || cols[0];
+      const artistCol = guessColumn(cols, [["artist","artist_name","artists"],["name"]]) || cols[0];
       const momentumCol = guessColumn(cols, [["momentum","mom"],["avgmovement","delta"]]);
       const popularityCol = guessColumn(cols, [["popularity","medianrank","rankmedian"],["rank","chart_rank"]]);
 
@@ -293,7 +332,8 @@
         return raw.map(d=>({
           artist: d[artistCol],
           momentum: +d[momentumCol],
-          popularity: +d[popularityCol]
+          popularity: +d[popularityCol],
+          raw: d
         })).filter(d=> Number.isFinite(d.momentum) && Number.isFinite(d.popularity));
       }
 
@@ -304,18 +344,19 @@
       const rows = raw.map(d=>({
         artist: d[artistCol],
         rank: +d[rankCol],
-        t: dateCol ? +new Date(d[dateCol]) : 0
+        t: dateCol ? +new Date(d[dateCol]) : 0,
+        raw: d
       })).filter(r => Number.isFinite(r.rank));
 
       const grouped = d3.group(rows, d=>d.artist);
       const out = [];
       grouped.forEach((vals, artist)=>{
         vals.sort((a,b)=> a.t - b.t);
-        if (vals.length < 5) return;
+        if (vals.length < 3) return;
         const ranks = vals.map(v=>v.rank);
         const medianRank = d3.median(ranks);
         const momentum = ranks[0] - ranks[ranks.length-1];
-        out.push({artist, momentum, popularity: medianRank});
+        out.push({artist, momentum, popularity: medianRank, raw: vals[vals.length-1].raw});
       });
       return out;
     }
@@ -352,11 +393,54 @@
         .on('mouseleave', ()=> momentumTooltip.style('display','none'));
     }
 
+    function renderTop20(points, raw){
+      try {
+        const rawCols = Object.keys(raw[0] || {});
+        const idCol = guessColumn(rawCols, [["spotify_id","id","track_id","artist_id"]]);
+        const nameCol = guessColumn(rawCols, [["name","track_name","title"]]);
+        const artistCol = guessColumn(rawCols, [["artists","artist","artist_name"]]);
+        const dateCol = guessColumn(rawCols, [["snapshot_date","date","ds","day"]]);
+        const dailyMoveCol = guessColumn(rawCols, [["daily_movement","movement","delta"]]);
+        const dailyRankCol = guessColumn(rawCols, [["daily_rank","rank","position","chart_rank"]]);
+
+        // sort by momentum desc
+        const top20 = [...points]
+          .filter(p => Number.isFinite(p.momentum))
+          .sort((a,b) => b.momentum - a.momentum)
+          .slice(0,20);
+
+        top20TableBody.innerHTML = '';
+        top20.forEach(p => {
+          const r = p.raw || {};
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td>${idCol ? (r[idCol] ?? '') : ''}</td>
+            <td>${nameCol ? (r[nameCol] ?? p.artist ?? '') : p.artist ?? ''}</td>
+            <td>${artistCol ? (r[artistCol] ?? '') : ''}</td>
+            <td>${dateCol ? (r[dateCol] ?? '') : ''}</td>
+            <td>${dailyMoveCol ? (r[dailyMoveCol] ?? '') : ''}</td>
+            <td>${dailyRankCol ? (r[dailyRankCol] ?? '') : ''}</td>
+            <td>${Number.isFinite(p.momentum) ? p.momentum.toFixed(2) : ''}</td>
+            <td>${Number.isFinite(p.popularity) ? p.popularity.toFixed(2) : ''}</td>
+          `;
+          top20TableBody.appendChild(tr);
+        });
+
+        top20Note.textContent = `Showing ${top20.length} rows. Columns are mapped from the CSV where possible.`;
+      } catch (err) {
+        top20Error.style.display = 'block';
+        top20Error.textContent = 'Failed to build Top 20 table: ' + err.message;
+      }
+    }
+
     d3.csv(CSV_PATH, d3.autoType).then(raw => {
       const points = computeFromRows(raw);
       renderMomentum(points);
+      renderTop20(points, raw);
     }).catch(err => {
       errorBox.style('display','block').text('⚠️ Failed to load ' + CSV_PATH + ': ' + err.message + '\nTip: serve this folder over http://.');
+      top20Error.style.display = 'block';
+      top20Error.textContent = '⚠️ Cannot load CSV for Top 20: ' + err.message;
       console.error(err);
     });
 
