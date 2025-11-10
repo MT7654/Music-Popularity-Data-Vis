@@ -328,6 +328,15 @@ User question: ${question}
       document.getElementById("chat-messages").lastChild.textContent = reply;
     });
 
+  // Allow pressing Enter to send message
+  document.getElementById("user-input").addEventListener("keypress", function (e) {
+  if (e.key === "Enter") {
+    e.preventDefault(); // Prevent form submission or newline
+    document.getElementById("send-btn").click(); // Trigger the same send function
+    }
+  });
+
+    
     // optional: auto-mark active link based on filename
     document.addEventListener("DOMContentLoaded", () => {
       const current = window.location.pathname.split("/").pop() || "index.html";
