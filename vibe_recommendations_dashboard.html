@@ -29,6 +29,7 @@
       color:#222;
       -webkit-font-smoothing:antialiased;
       -moz-osx-font-smoothing:grayscale;
+      min-height:100vh;
     }
 
     .navbar{
@@ -67,66 +68,140 @@
     /* ===== Page container ===== */
     .page {
       max-width: var(--page-width);
-      margin: 26px auto;
-      padding: 0 20px 60px;
+      margin: 5px auto;
+      padding: 0 15px 20px;
+      display:flex;
+      flex-direction:column;
     }
 
     header{
       text-align:center;
-      margin-bottom: 8px;
+      margin-bottom: 4px;
     }
     header h1{
-      margin: 18px 0 6px;
+      margin: 8px 0 4px;
       color: var(--accent);
-      font-size: 28px;
+      font-size: 20px;
     }
     header p.subtitle{
       margin:0;
       color:var(--muted);
-      font-size: 14px;
+      font-size: 12px;
     }
 
     main{
       background: var(--card);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 22px;
-      margin-top:18px;
+      padding: 10px;
+      margin-top:6px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    .top-row{
+      display:grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap:10px;
+    }
+
+    .left-column{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+
+    .full-width-section{
+      width:100%;
+    }
+
+    .filter-container{
+      margin-bottom: 4px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+    }
+
+    .filter-container label{
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--accent);
+    }
+
+    .filter-container select{
+      padding: 4px 8px;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 11px;
+      background: white;
+      color: #222;
+      cursor: pointer;
+      min-width: 120px;
+    }
+
+    .filter-container select:hover{
+      border-color: var(--accent);
+    }
+
+    .filter-container select:focus{
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.1);
     }
 
     h2{
-      margin: 8px 0 14px;
+      margin: 2px 0 4px;
       color: var(--accent);
-      font-size: 18px;
+      font-size: 13px;
     }
 
     .section {
-      padding: 20px;
-      margin-bottom: 18px;
+      padding: 6px;
       border-radius: 10px;
       background: #fff;
       box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+      display:flex;
+      flex-direction:column;
     }
 
     .analysis-box{
       background: #fbfdff;
       border-left: 4px solid var(--accent);
-      padding: 12px 14px;
-      margin-top: 12px;
+      padding: 6px 8px;
+      margin-top: 4px;
       border-radius: 6px;
       color: #334155;
-      font-size: 14px;
-      line-height: 1.5;
+      font-size: 11px;
+      line-height: 1.4;
+    }
+
+    .section:last-child .analysis-box{
+      margin-top: 4px;
+    }
+
+    .top-row .section:last-child .analysis-box{
+      margin-top: 2px;
     }
 
     .chart-container{
       width:100%;
-      height: 600px;
-      min-height: 380px;
+      height: 400px;
+      min-height: 400px;
     }
 
     /* small screens */
     @media (max-width:900px){
+      body{ overflow:auto; }
+      .page{ height:auto; }
+      .top-row{
+        grid-template-columns: 1fr;
+      }
+      .left-column{
+        display:flex;
+        flex-direction:column;
+        gap:14px;
+      }
       .chart-container{ height: 420px; }
       header h1{ font-size:22px; }
       .nav-link{ padding:12px 14px; font-size:14px; }
@@ -155,18 +230,38 @@
     </header>
 
     <main>
-      <div class="section">
-        <h2>1️⃣ Momentum vs Popularity</h2>
-        <div id="chart1" class="chart-container" role="img" aria-label="Momentum vs Popularity chart"></div>
-        <div class="analysis-box">
-          <strong>Analysis:</strong> Around 40% of the tracks cluster in the mid-to-high popularity range, but only a handful push above the 70-mark in both momentum and popularity.
-EDM and high-energy pop stand out - they’re not just popular but also accelerating fast, signaling repeat listens and algorithmic boosts.
-Lower-momentum vibes like acoustic or lo-fi remain steady but aren’t showing much viral movement right now.
+      <div class="top-row">
+        <div class="left-column">
+          <div class="section">
+            <h2>Momentum vs Popularity</h2>
+            <div id="chart1" class="chart-container" role="img" aria-label="Momentum vs Popularity chart"></div>
+            <div class="analysis-box">
+              <strong>Analysis:</strong> Around 40% of the tracks cluster in the mid-to-high popularity range, but only a handful push above the 70-mark in both momentum and popularity.
+EDM and high-energy pop stand out - they're not just popular but also accelerating fast, signaling repeat listens and algorithmic boosts.
+Lower-momentum vibes like acoustic or lo-fi remain steady but aren't showing much viral movement right now.
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>Latest Momentum by Country</h2>
+          <div class="filter-container">
+            <label for="countryFilter">Filter by Country:</label>
+            <select id="countryFilter">
+              <option value="all">All Countries</option>
+            </select>
+          </div>
+          <div id="chart3" class="chart-container" role="img" aria-label="Latest momentum by country chart"></div>
+          <div class="analysis-box">
+            <strong>Analysis:</strong> Momentum trends vary sharply across regions. In Australia, EDM tracks score around 75 on average, while Canada and the U.S. hover near 70.
+In contrast, European countries lean toward softer styles - acoustic and chill vibes hold steady between 50 and 60 momentum.
+This split suggests two emerging listener patterns: upbeat streaming habits in Western markets and introspective, slower preferences in parts of Europe and Asia.
+          </div>
         </div>
       </div>
 
-      <div class="section">
-        <h2>2️⃣ Popularity Trends Over Time</h2>
+      <div class="section full-width-section">
+        <h2>Popularity Trends Over Time</h2>
         <div id="chart2" class="chart-container" role="img" aria-label="Popularity trends over time chart"></div>
         <div class="analysis-box">
           <strong>Analysis:</strong> Over the last 6-8 months, dance and pop vibes have seen a consistent upward climb, averaging a 20-25% increase in popularity.
@@ -174,24 +269,148 @@ Acoustic and mellow styles fluctuate more, rising briefly during quieter months 
 The overall trend shows a clear audience shift toward energetic, replayable tracks that perform better on short-form platforms.
         </div>
       </div>
-
-      <div class="section">
-        <h2>3️⃣ Latest Momentum by Country</h2>
-        <div id="chart3" class="chart-container" role="img" aria-label="Latest momentum by country chart"></div>
-        <div class="analysis-box">
-          <strong>Analysis:</strong> Momentum trends vary sharply across regions. In Australia, EDM tracks score around 75 on average, while Canada and the U.S. hover near 70.
-In contrast, European countries lean toward softer styles - acoustic and chill vibes hold steady between 50 and 60 momentum.
-This split suggests two emerging listener patterns: upbeat streaming habits in Western markets and introspective, slower preferences in parts of Europe and Asia.
-        </div>
-      </div>
     </main>
   </div>
 
   <script>
+    // Global variables to store data
+    let allData = [];
+    let vibes = [];
+    let countries = [];
+    const countryNameMap = {};
+    const regionDisplay = typeof Intl !== 'undefined' && Intl.DisplayNames
+      ? new Intl.DisplayNames(['en'], { type: 'region' })
+      : null;
+
+    function getCountryDisplay(code){
+      if(!code) return '';
+      const key = code.toUpperCase();
+      if(countryNameMap[key]) return countryNameMap[key];
+      let label = key;
+      if(regionDisplay && /^[A-Z]{2,3}$/.test(key)){
+        try{
+          label = regionDisplay.of(key) || key;
+        }catch(e){
+          label = key;
+        }
+      }
+      countryNameMap[key] = label;
+      return label;
+    }
+
     // Helper: sort months safely (YYYY-MM or YYYY-MM-DD)
     function monthKey(m){
       // return string as-is if in YYYY-MM or YYYY-MM-DD formats
       return (m||'').toString();
+    }
+
+    function buildChart3(selectedCountry = 'all'){
+      const df = allData.filter(r => r.vibe && r.popularity !== undefined && r.momentum !== undefined);
+      
+      // Filter by country if selected
+      let filteredDf = df;
+      if(selectedCountry !== 'all'){
+        filteredDf = df.filter(d => d.country === selectedCountry);
+      }
+
+      // get latest year_month per country+vibe
+      const latestMap = {};
+      filteredDf.forEach(d => {
+        const key = d.country + '||' + d.vibe;
+        if(!latestMap[key] || monthKey(d.year_month) > monthKey(latestMap[key].year_month)){
+          latestMap[key] = d;
+        }
+      });
+      const latest = Object.values(latestMap);
+
+      let barTraces, xAxisTitle, title;
+      
+      if(selectedCountry === 'all'){
+        // Show all countries grouped by vibe
+        barTraces = vibes.map(v => {
+          const subset = latest.filter(d => d.vibe === v).sort((a,b)=> a.country.localeCompare(b.country));
+          if(subset.length === 0) return null;
+          return {
+            x: subset.map(s => getCountryDisplay(s.country)),
+            y: subset.map(s => s.momentum),
+            name: v,
+            type: 'bar',
+            marker: { opacity: 1 }
+          };
+        }).filter(t => t !== null);
+        xAxisTitle = 'Country';
+        title = "What's Trending Where";
+      } else {
+        // Show vibes for selected country
+        const countryData = latest.filter(d => d.country === selectedCountry);
+        const availableVibes = vibes.filter(v => countryData.some(d => d.vibe === v));
+        const momentumValues = availableVibes.map(v => {
+          const data = countryData.find(d => d.vibe === v);
+          return data ? data.momentum : 0;
+        });
+        
+        barTraces = [{
+          x: availableVibes,
+          y: momentumValues,
+          type: 'bar',
+          marker: { color: '#4f46e5', opacity: 1 }
+        }];
+        xAxisTitle = 'Vibe';
+        title = `Latest Momentum by Vibe — ${getCountryDisplay(selectedCountry)}`;
+      }
+
+      const tickAngle = selectedCountry === 'all' ? -45 : -15;
+      
+      // Store original marker opacity for hover animations
+      const originalOpacities = barTraces.map(t => t.marker ? (t.marker.opacity || 1) : 1);
+      
+      Plotly.react('chart3', barTraces, {
+        title: { text: title, font: { size: 12 } },
+        xaxis:{
+          title:{ text: xAxisTitle, font:{ size:11 } },
+          tickangle: tickAngle,
+          automargin:true,
+          tickfont:{ size:10 }
+        },
+        yaxis:{
+          title:{ text:'Momentum', font:{ size:11 } },
+          tickfont:{ size:10 }
+        },
+        legend:{ font:{ size:10 } },
+        barmode: selectedCountry === 'all' ? 'group' : 'overlay',
+        margin:{ t:30, l:50, r:20, b:80 },
+        template:'plotly_white'
+      }, {responsive:true}).then(() => {
+        const chartDiv = document.getElementById('chart3');
+        chartDiv.on('plotly_hover', function(data) {
+          const point = data.points[0];
+          const traceIndex = point.curveNumber;
+          const newOpacities = originalOpacities.map((op, i) => i === traceIndex ? 1 : op * 0.4);
+          Plotly.restyle('chart3', {'marker.opacity': newOpacities}, Array.from({length: barTraces.length}, (_, i) => i));
+        });
+        chartDiv.on('plotly_unhover', function() {
+          Plotly.restyle('chart3', {'marker.opacity': originalOpacities}, Array.from({length: barTraces.length}, (_, i) => i));
+        });
+      });
+    }
+
+    function populateCountryFilter(){
+      const select = document.getElementById('countryFilter');
+      // Clear existing options except "All Countries"
+      select.innerHTML = '<option value="all">All Countries</option>';
+      
+      // Add country options
+      countries.forEach(country => {
+        const option = document.createElement('option');
+        option.value = country;
+        option.textContent = getCountryDisplay(country);
+        select.appendChild(option);
+      });
+
+      // Add event listener for filter changes
+      select.addEventListener('change', function(){
+        buildChart3(this.value);
+      });
     }
 
     function buildCharts(data){
@@ -202,11 +421,16 @@ This split suggests two emerging listener patterns: upbeat streaming habits in W
         r.popularity = +r.popularity;
         r.momentum = +r.momentum;
         r.year_month = (r.year_month || r.year || '').toString();
-        r.country = (r.country || '').toString();
+        r.country = (r.country || '').toString().trim();
         r.vibe = (r.vibe || 'Other').toString();
       });
 
-      const vibes = Array.from(new Set(df.map(d => d.vibe))).sort();
+      // Store globally
+      allData = df;
+      vibes = Array.from(new Set(df.map(d => d.vibe))).sort();
+      countries = Array.from(new Set(df.map(d => d.country).filter(c => c && c.trim() !== ''))).sort((a,b) => {
+        return getCountryDisplay(a).localeCompare(getCountryDisplay(b));
+      });
 
       // Chart 1: scatter (popularity x momentum)
       const scatterTraces = vibes.map(v => {
@@ -222,13 +446,42 @@ This split suggests two emerging listener patterns: upbeat streaming habits in W
         };
       });
 
+      // Store original marker sizes for hover animations
+      const originalMarkerSizes = scatterTraces.map(t => Array.isArray(t.marker.size) ? [...t.marker.size] : t.marker.size);
+      
       Plotly.react('chart1', scatterTraces, {
-        title: 'Momentum vs Popularity - Finding the Next Big Vibe',
-        xaxis:{ title:'Popularity' },
-        yaxis:{ title:'Momentum' },
-        margin:{ t:60, l:60, r:30, b:60 },
+        title: { text: 'Finding the Next Big Vibe', font: { size: 12 } },
+        xaxis:{
+          title:{ text:'Popularity', font:{ size:11 } },
+          tickfont:{ size:10 }
+        },
+        yaxis:{
+          title:{ text:'Momentum', font:{ size:11 } },
+          tickfont:{ size:10 }
+        },
+        legend:{ font:{ size:10 } },
+        margin:{ t:30, l:50, r:20, b:50 },
         template:'plotly_white'
-      }, {responsive:true});
+      }, {responsive:true}).then(() => {
+        const chartDiv = document.getElementById('chart1');
+        chartDiv.on('plotly_hover', function(data) {
+          const point = data.points[0];
+          const traceIndex = point.curveNumber;
+          const pointIndex = point.pointNumber;
+          const newSizes = originalMarkerSizes.map((sizes, i) => {
+            if (i === traceIndex) {
+              const arr = Array.isArray(sizes) ? [...sizes] : new Array(scatterTraces[i].x.length).fill(sizes);
+              arr[pointIndex] = arr[pointIndex] * 1.8;
+              return arr;
+            }
+            return sizes;
+          });
+          Plotly.restyle('chart1', {'marker.size': newSizes}, Array.from({length: scatterTraces.length}, (_, i) => i));
+        });
+        chartDiv.on('plotly_unhover', function() {
+          Plotly.restyle('chart1', {'marker.size': originalMarkerSizes}, Array.from({length: scatterTraces.length}, (_, i) => i));
+        });
+      });
 
       // Chart 2: lines over time per vibe
       const lineTraces = vibes.map(v => {
@@ -238,47 +491,52 @@ This split suggests two emerging listener patterns: upbeat streaming habits in W
           y: subset.map(s => s.popularity),
           mode: 'lines+markers',
           name: v,
-          type: 'scatter'
+          type: 'scatter',
+          line: { width: 2 },
+          marker: { size: 6 }
         };
       });
+
+      // Store original line widths and marker sizes for hover animations
+      const originalLineWidths = lineTraces.map(t => t.line ? t.line.width : 2);
+      const originalLineMarkerSizes = lineTraces.map(t => t.marker ? t.marker.size : 6);
 
       Plotly.react('chart2', lineTraces, {
-        title: 'Popularity Trends Over Time by Vibe',
-        xaxis:{ title:'Month' },
-        yaxis:{ title:'Popularity' },
-        margin:{ t:60, l:60, r:30, b:120 },
+        title: { text: 'Popularity Trends Over Time by Vibe', font: { size: 12 } },
+        xaxis:{
+          title:{ text:'Month', font:{ size:11 } },
+          tickfont:{ size:10 }
+        },
+        yaxis:{
+          title:{ text:'Popularity', font:{ size:11 } },
+          tickfont:{ size:10 }
+        },
+        legend:{ font:{ size:10 } },
+        margin:{ t:30, l:50, r:20, b:80 },
         template:'plotly_white'
-      }, {responsive:true});
-
-      // Chart 3: latest momentum by country grouped by vibe
-      // get latest year_month per country+vibe
-      const latestMap = {};
-      df.forEach(d => {
-        const key = d.country + '||' + d.vibe;
-        if(!latestMap[key] || monthKey(d.year_month) > monthKey(latestMap[key].year_month)){
-          latestMap[key] = d;
-        }
-      });
-      const latest = Object.values(latestMap);
-
-      const barTraces = vibes.map(v => {
-        const subset = latest.filter(d => d.vibe === v).sort((a,b)=> a.country.localeCompare(b.country));
-        return {
-          x: subset.map(s => s.country),
-          y: subset.map(s => s.momentum),
-          name: v,
-          type: 'bar'
-        };
+      }, {responsive:true}).then(() => {
+        const chartDiv = document.getElementById('chart2');
+        chartDiv.on('plotly_hover', function(data) {
+          const point = data.points[0];
+          const traceIndex = point.curveNumber;
+          const newLineWidths = originalLineWidths.map((w, i) => i === traceIndex ? w * 2 : w);
+          const newMarkerSizes = originalLineMarkerSizes.map((s, i) => i === traceIndex ? s * 1.5 : s);
+          Plotly.restyle('chart2', {
+            'line.width': newLineWidths,
+            'marker.size': newMarkerSizes
+          }, Array.from({length: lineTraces.length}, (_, i) => i));
+        });
+        chartDiv.on('plotly_unhover', function() {
+          Plotly.restyle('chart2', {
+            'line.width': originalLineWidths,
+            'marker.size': originalLineMarkerSizes
+          }, Array.from({length: lineTraces.length}, (_, i) => i));
+        });
       });
 
-      Plotly.react('chart3', barTraces, {
-        title: "Latest Momentum by Country - What's Trending Where",
-        xaxis:{ title:'Country', tickangle: -45, automargin:true },
-        yaxis:{ title:'Momentum' },
-        barmode:'group',
-        margin:{ t:60, l:60, r:30, b:200 },
-        template:'plotly_white'
-      }, {responsive:true});
+      // Populate country filter and build chart 3
+      populateCountryFilter();
+      buildChart3('all');
     }
 
     // Load CSV dynamically using PapaParse
