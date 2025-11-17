@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Global Vibe Trends</title>
 
-  <!-- D3 + Plotly -->
+  <!-- Plotly + D3 -->
   <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
   <script src="https://d3js.org/d3.v7.min.js"></script>
 
@@ -47,8 +47,8 @@
       text-decoration: none;
       font-weight: 500;
       border-bottom: 3px solid transparent;
-      transition: all 0.3s ease;
       white-space: nowrap;
+      transition: all 0.3s ease;
     }
     .nav-link:hover {
       color: #fff;
@@ -60,11 +60,8 @@
       background-color: rgba(255, 255, 255, 0.1);
     }
 
-    /* ====== Page content styling ====== */
     header {
       text-align: center;
-      background: #f8fafc;
-      color: #333;
       padding: 2rem 1rem 1rem;
     }
     h1 {
@@ -73,7 +70,6 @@
       color: #4f46e5;
     }
     p.subtitle {
-      margin-top: 0;
       opacity: 0.9;
       font-size: 1.1rem;
     }
@@ -83,23 +79,23 @@
       margin: 2rem auto;
       background: white;
       border-radius: 16px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
       padding: 2rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     }
 
     h2 {
-      margin-top: 2rem;
       color: #4f46e5;
+      margin-top: 2rem;
     }
 
     .chart-container {
-      animation: fadeIn 1s ease-in-out;
       text-align: center;
+      animation: fadeIn 1s ease-in-out;
     }
 
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
     footer {
@@ -108,15 +104,11 @@
       font-size: 0.9rem;
       color: #666;
     }
-
-    ul {
-      line-height: 1.8;
-    }
   </style>
 </head>
 
 <body>
-  <!-- Navigation Bar -->
+  <!-- NAVIGATION BAR -->
   <nav class="navbar">
     <div class="nav-container">
       <ul class="nav-tabs">
@@ -130,13 +122,13 @@
     </div>
   </nav>
 
-  <!-- Header -->
+  <!-- HEADER -->
   <header>
     <h1>Global Comparison of Music Vibes</h1>
     <p class="subtitle">A visualization of Spotify vibe popularity across countries</p>
   </header>
 
-  <!-- Main content -->
+  <!-- MAIN CONTENT -->
   <main>
     <section class="chart-container">
       <h2>Music Vibes Around the World</h2>
@@ -148,77 +140,84 @@
     <section>
       <h2>Insights</h2>
       <ul>
-        <li><b>Dance / EDM</b> emerges as a global favorite, dominating in <b>India (0.70)</b>, <b>Brazil (0.55)</b>, and the <b>U.S. (0.53)</b>. These regions share a strong affinity for energetic and festival-style music.</li>
-        <li><b>Japan</b> stands apart with its overwhelming love for <b>High-Energy Pop (0.65)</b>, nearly triple that of <b>France (0.24)</b> — reflecting Japan’s deep-rooted pop culture and polished mainstream sound.</li>
-        <li><b>Indonesia</b> contrasts sharply with Japan, leading in <b>Emo / Sad Chill (0.82)</b> while Japan ranks the lowest (0.04). This shows a clear divide between emotional introspection and upbeat optimism in listener preferences.</li>
-        <li><b>France</b> maintains the highest share of <b>Alternative / Experimental (0.50)</b> music, signaling a taste for creative, non-mainstream styles — opposite of <b>Brazil’s</b> focus on rhythm-heavy <b>Dance / EDM (0.55)</b>.</li>
-        <li><b>Classic / Evergreen</b> music thrives in <b>Indonesia (0.78)</b> and the <b>U.S. (0.43)</b>, showing nostalgia and appreciation for timeless tracks even as newer genres grow.</li>
-        <li>Overall, <b>Rap / Trap Vibes</b> remain underrepresented across all regions — highest in <b>France (0.33)</b> yet minimal elsewhere — suggesting that lyrical, beat-driven genres are still niche compared to melodic or electronic styles.</li>
+        <li><b>Dance / EDM</b> dominates in <b>India</b>, <b>Brazil</b>, and the <b>U.S.</b>, showing a strong preference for energetic music.</li>
+        <li><b>Japan</b> heavily favors <b>High-Energy Pop</b> compared to all other countries.</li>
+        <li><b>Indonesia</b> leads in <b>Emo / Sad Chill</b>, showing a strong emotional preference.</li>
+        <li><b>France</b> has the highest share of <b>Alternative / Experimental</b> music.</li>
+        <li><b>Classic / Evergreen</b> remains strong in <b>Indonesia</b> and the <b>U.S.</b>.</li>
+        <li><b>Rap / Trap</b> is low across all countries, highest only in <b>France</b>.</li>
       </ul>
     </section>
   </main>
 
+  <!-- CHART SCRIPT -->
   <script>
     d3.csv("Vibe_Popularity.csv").then(function(df) {
       const countries = ["FR", "JP", "BR", "ID", "US", "IN"];
       const vibes = Array.from(new Set(df.map(d => d.Vibe)));
 
-      const colorPalette = [
+      const colors = [
         "rgb(102,197,204)", "rgb(246,207,113)", "rgb(248,156,116)",
         "rgb(220,176,242)", "rgb(135,197,95)", "rgb(158,185,243)",
         "rgb(254,136,177)"
       ];
       const colorMap = {};
-      vibes.forEach((vibe, i) => colorMap[vibe] = colorPalette[i % colorPalette.length]);
+      vibes.forEach((v, i) => colorMap[v] = colors[i % colors.length]);
 
       const rows = 2, cols = 3;
       const data = [];
 
       countries.forEach((country, i) => {
-        const row = Math.floor(i / cols);
-        const col = i % cols;
-        const df_country = df.filter(d => d.Country === country);
+        const r = Math.floor(i / cols);
+        const c = i % cols;
+        const df_c = df.filter(d => d.Country === country);
 
         data.push({
           type: "pie",
-          labels: df_country.map(d => d.Vibe),
-          values: df_country.map(d => +d.Pop_Share),
+          labels: df_c.map(d => d.Vibe),
+          values: df_c.map(d => +d.Pop_Share),
           name: country,
           marker: {
-            colors: df_country.map(d => colorMap[d.Vibe]),
+            colors: df_c.map(d => colorMap[d.Vibe]),
             line: { color: "white", width: 2 }
           },
           textinfo: "label+percent",
-          textposition: "inside",
-          hovertemplate: "%{label}: %{percent}<extra></extra>",
-          domain: { row: row, column: col }
+          domain: { row: r, column: c }
         });
       });
 
+      // COUNTRY TITLES (IMPORTANT FIX)
       const layout = {
         grid: { rows: rows, columns: cols },
         showlegend: true,
         legend: { title: { text: "Vibe Categories" } },
         paper_bgcolor: "white",
-        plot_bgcolor: "white",
         font: { size: 13, color: "#333" },
         title: { text: "Global Comparison of Vibes", x: 0.5 },
-        height: 700,
-        width: 1000
+        height: 750,
+        width: 1000,
+
+        annotations: [
+          { text: "France", x: 0.17, y: 1.07, xref:"paper", yref:"paper", showarrow:false },
+          { text: "Japan", x: 0.50, y: 1.07, xref:"paper", yref:"paper", showarrow:false },
+          { text: "Brazil", x: 0.83, y: 1.07, xref:"paper", yref:"paper", showarrow:false },
+          { text: "Indonesia", x: 0.17, y: 0.47, xref:"paper", yref:"paper", showarrow:false },
+          { text: "United States", x: 0.50, y: 0.47, xref:"paper", yref:"paper", showarrow:false },
+          { text: "India", x: 0.83, y: 0.47, xref:"paper", yref:"paper", showarrow:false }
+        ]
       };
 
       Plotly.newPlot("chart", data, layout);
     });
 
-    // auto-activate based on filename (in case served from file system)
+    // Navbar auto-highlight
     document.addEventListener("DOMContentLoaded", () => {
-      const current = window.location.pathname.split("/").pop() || "Section4.html";
-      document.querySelectorAll(".nav-link").forEach(link => {
-        if (link.getAttribute("href") === current) {
-          link.classList.add("active");
-        }
+      const current = window.location.pathname.split("/").pop();
+      document.querySelectorAll(".nav-link").forEach(a => {
+        if (a.getAttribute("href") === current) a.classList.add("active");
       });
     });
   </script>
+
 </body>
 </html>
