@@ -181,12 +181,12 @@
             colors: df_c.map(d => colorMap[d.Vibe]),
             line: { color: "white", width: 2 }
           },
-          textinfo: "label+percent",
+          textinfo: "none",              // ⬅ Removed slice labels
+          hoverinfo: "label+percent+name", // Keep tooltip info
           domain: { row: r, column: c }
         });
       });
 
-      // COUNTRY TITLES (IMPORTANT FIX)
       const layout = {
         grid: { rows: rows, columns: cols },
         showlegend: true,
