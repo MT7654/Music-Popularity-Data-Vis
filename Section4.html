@@ -134,7 +134,7 @@
       <h2>Music Vibes Around the World</h2>
       <p>Explore the vibe distribution across France, Japan, Brazil, Indonesia, the U.S., and India.</p>
 
-      <div id="chart" style="width:1000px;height:700px;margin:auto;"></div>
+      <div id="chart" style="width:1100px;height:800px;margin:auto;"></div>
     </section>
 
     <!-- ⬇ Added spacing above Insights -->
@@ -158,22 +158,23 @@
       const vibes = Array.from(new Set(df.map(d => d.Vibe)));
 
       const colors = [
-        "rgb(102,197,204)", "rgb(246,207,113)", "rgb(248,156,116)",
-        "rgb(220,176,242)", "rgb(135,197,95)", "rgb(158,185,243)",
-        "rgb(254,136,177)"
+        "rgb(153,220,227)", "rgb(250,230,170)", "rgb(252,200,170)",
+        "rgb(235,210,248)", "rgb(180,225,160)", "rgb(200,215,250)",
+        "rgb(255,190,215)"
       ];
       const colorMap = {};
       vibes.forEach((v, i) => colorMap[v] = colors[i % colors.length]);
 
       const rows = 2, cols = 3;
       const data = [];
+      const defaultPulls = [];
 
       countries.forEach((country, i) => {
         const r = Math.floor(i / cols);
         const c = i % cols;
         const df_c = df.filter(d => d.Country === country);
 
-        data.push({
+        const trace = {
           type: "pie",
           labels: df_c.map(d => d.Vibe),
           values: df_c.map(d => +d.Pop_Share),
@@ -182,14 +183,21 @@
             colors: df_c.map(d => colorMap[d.Vibe]),
             line: { color: "white", width: 2 }
           },
-          textinfo: "none",
+          textinfo: "percent",
+          textposition: "inside",
+          textfont: { size: 11 },
           hoverinfo: "label+percent+name",
-          domain: { row: r, column: c }
-        });
+          domain: { 
+            row: r, 
+            column: c
+          }
+        };
+        data.push(trace);
+        defaultPulls.push(new Array(trace.values.length).fill(0));
       });
 
       const layout = {
-        grid: { rows: rows, columns: cols },
+        grid: { rows: rows, columns: cols, xgap: 0.15, ygap: 0.15 },
         showlegend: true,
         legend: { title: { text: "Vibe Categories" } },
         paper_bgcolor: "white",
@@ -197,21 +205,45 @@
         title: { 
           text: "Global Comparison of Vibes",
           x: 0.5,
-          pad: { t: 0, b: 50 }  // ⬅ Added spacing below chart title
+          pad: { t: 0, b: 50 }
         },
-        height: 750,
-        width: 1000,
+        height: 800,
+        width: 1100,
         annotations: [
-          { text: "France", x: 0.17, y: 1.07, xref:"paper", yref:"paper", showarrow:false },
-          { text: "Japan", x: 0.50, y: 1.07, xref:"paper", yref:"paper", showarrow:false },
-          { text: "Brazil", x: 0.83, y: 1.07, xref:"paper", yref:"paper", showarrow:false },
-          { text: "Indonesia", x: 0.17, y: 0.47, xref:"paper", yref:"paper", showarrow:false },
-          { text: "United States", x: 0.50, y: 0.47, xref:"paper", yref:"paper", showarrow:false },
-          { text: "India", x: 0.83, y: 0.47, xref:"paper", yref:"paper", showarrow:false }
+          { text: "France", x: 0.17, y: 1.05, xref:"paper", yref:"paper", showarrow:false, font: { size: 14 } },
+          { text: "Japan", x: 0.50, y: 1.05, xref:"paper", yref:"paper", showarrow:false, font: { size: 14 } },
+          { text: "Brazil", x: 0.83, y: 1.05, xref:"paper", yref:"paper", showarrow:false, font: { size: 14 } },
+          { text: "Indonesia", x: 0.17, y: 0.45, xref:"paper", yref:"paper", showarrow:false, font: { size: 14 } },
+          { text: "United States", x: 0.50, y: 0.45, xref:"paper", yref:"paper", showarrow:false, font: { size: 14 } },
+          { text: "India", x: 0.83, y: 0.45, xref:"paper", yref:"paper", showarrow:false, font: { size: 14 } }
         ]
       };
 
-      Plotly.newPlot("chart", data, layout);
+      Plotly.newPlot("chart", data, layout).then(() => {
+        const chartDiv = document.getElementById("chart");
+
+        chartDiv.on("plotly_hover", evt => {
+          const point = evt.points && evt.points[0];
+          if(!point) return;
+          const traceIndex = point.curveNumber;
+          const sliceIndex = point.pointNumber;
+          const pulls = defaultPulls[traceIndex].map(() => 0);
+          pulls[sliceIndex] = 0.1;
+          Plotly.restyle(chartDiv, { pull: [pulls] }, [traceIndex]);
+        });
+
+        chartDiv.on("plotly_unhover", evt => {
+          const point = evt.points && evt.points[0];
+          if(point){
+            const traceIndex = point.curveNumber;
+            Plotly.restyle(chartDiv, { pull: [defaultPulls[traceIndex]] }, [traceIndex]);
+          }else{
+            data.forEach((_, idx) => {
+              Plotly.restyle(chartDiv, { pull: [defaultPulls[idx]] }, [idx]);
+            });
+          }
+        });
+      });
     });
 
     // Navbar auto-highlight
