@@ -62,7 +62,7 @@
 
     header {
       text-align: center;
-      padding: 2rem 1rem 1rem;
+      padding: 2rem 1rem 2rem; /* ⬅ Added spacing below title */
     }
     h1 {
       margin-bottom: 0.5rem;
@@ -137,7 +137,8 @@
       <div id="chart" style="width:1000px;height:700px;margin:auto;"></div>
     </section>
 
-    <section>
+    <!-- ⬇ Added spacing above Insights -->
+    <section style="margin-top: 80px;">
       <h2>Insights</h2>
       <ul>
         <li><b>Dance / EDM</b> dominates in <b>India</b>, <b>Brazil</b>, and the <b>U.S.</b>, showing a strong preference for energetic music.</li>
@@ -181,8 +182,8 @@
             colors: df_c.map(d => colorMap[d.Vibe]),
             line: { color: "white", width: 2 }
           },
-          textinfo: "none",              // ⬅ Removed slice labels
-          hoverinfo: "label+percent+name", // Keep tooltip info
+          textinfo: "none",
+          hoverinfo: "label+percent+name",
           domain: { row: r, column: c }
         });
       });
@@ -193,10 +194,13 @@
         legend: { title: { text: "Vibe Categories" } },
         paper_bgcolor: "white",
         font: { size: 13, color: "#333" },
-        title: { text: "Global Comparison of Vibes", x: 0.5 },
+        title: { 
+          text: "Global Comparison of Vibes",
+          x: 0.5,
+          pad: { t: 0, b: 50 }  // ⬅ Added spacing below chart title
+        },
         height: 750,
         width: 1000,
-
         annotations: [
           { text: "France", x: 0.17, y: 1.07, xref:"paper", yref:"paper", showarrow:false },
           { text: "Japan", x: 0.50, y: 1.07, xref:"paper", yref:"paper", showarrow:false },
